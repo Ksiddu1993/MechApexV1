@@ -1,7 +1,7 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, FlatList, Pressable, RefreshControl, ActivityIndicator,
-  TextInput, Linking, Modal, ScrollView,
+  TextInput, Linking, Modal, ScrollView, Alert, Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useLocalSearchParams } from 'expo-router';
@@ -21,6 +21,9 @@ export default function Customers() {
   const [loading, setLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [csvImporting, setCsvImporting] = useState(false);
+  const [csvResult, setCsvResult] = useState<{ imported: number; skipped: number } | null>(null);
+  const fileInputRef = useRef<any>(null);
   const [query, setQuery] = useState('');
 
   // Add Customer Modal State
@@ -102,6 +105,52 @@ export default function Customers() {
     }
   }
 
+  function handleImportCsv() {
+    if (Platform.OS === 'web') {
+      // Web: use hidden file input
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.csv,text/csv';
+      input.onchange = async (e: any) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        setCsvImporting(true);
+        try {
+          const text = await file.text();
+          const rows = text.split('\n').map((r: string) => r.trim()).filter(Boolean);
+          // Detect header row
+          const startIdx = rows[0]?.toLowerCase().includes('name') ? 1 : 0;
+          let imported = 0;
+          let skipped = 0;
+          for (let i = startIdx; i < rows.length; i++) {
+            const cols = rows[i].split(',').map((c: string) => c.trim().replace(/^"|"$/g, ''));
+            const name = cols[0];
+            const phone = cols[1]?.replace(/\D/g, '');
+            if (!name || !phone || phone.length < 10) { skipped++; continue; }
+            try {
+              await api.createCustomer({ name, phone });
+              imported++;
+            } catch {
+              skipped++;
+            }
+          }
+          setCsvResult({ imported, skipped });
+          load();
+        } catch (err) {
+          Alert.alert('Import Error', 'Could not read CSV file. Please check the format.');
+        } finally {
+          setCsvImporting(false);
+        }
+      };
+      input.click();
+    } else {
+      Alert.alert(
+        'Import CSV',
+        'CSV import is available on the web version of MechApex. Open the app in your browser to use this feature.'
+      );
+    }
+  }
+
   async function callCustomer(phone: string) {
     const url = `tel:${phone}`;
     const ok = await Linking.canOpenURL(url);
@@ -179,7 +228,7 @@ export default function Customers() {
                 <Text style={s.summaryValue}>{customers.length}</Text>
               </View>
 
-              <View style={{ flexDirection: 'row', gap: 8 }}>
+              <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
                 <Pressable
                   style={s.addCardBtn}
                   onPress={() => setAddModalOpen(true)}
@@ -187,6 +236,22 @@ export default function Customers() {
                 >
                   <Ionicons name="person-add-outline" size={15} color={colors.brandPrimary} />
                   <Text style={s.addCardBtnText}>+ Customer</Text>
+                </Pressable>
+
+                <Pressable
+                  style={[s.importBtn, csvImporting && { opacity: 0.6 }]}
+                  onPress={handleImportCsv}
+                  disabled={csvImporting}
+                  testID="import-customers-csv"
+                >
+                  {csvImporting ? (
+                    <ActivityIndicator size="small" color={colors.brandPrimary} />
+                  ) : (
+                    <>
+                      <Ionicons name="cloud-upload-outline" size={15} color={colors.brandPrimary} />
+                      <Text style={s.importBtnText}>Import CSV</Text>
+                    </>
+                  )}
                 </Pressable>
 
                 <Pressable
@@ -272,6 +337,45 @@ export default function Customers() {
             </View>
           )}
         />
+      )}
+
+      {/* CSV Import Result Modal */}
+      {csvResult && (
+        <Modal visible transparent animationType="fade" onRequestClose={() => setCsvResult(null)}>
+          <View style={s.modalWrap}>
+            <Pressable style={StyleSheet.absoluteFill} onPress={() => setCsvResult(null)} />
+            <View style={[s.sheet, { paddingBottom: 40 }]}>
+              <View style={s.grabber} />
+              <View style={{ alignItems: 'center', paddingVertical: 20 }}>
+                <Ionicons name="checkmark-circle" size={52} color={colors.success} />
+                <Text style={[s.sheetTitle, { marginTop: 12, textAlign: 'center' }]}>CSV Import Complete</Text>
+                <View style={{ flexDirection: 'row', gap: 20, marginTop: 16, marginBottom: 8 }}>
+                  <View style={{ alignItems: 'center' }}>
+                    <Text style={{ fontSize: 28, fontWeight: '800', color: colors.success }}>{csvResult.imported}</Text>
+                    <Text style={{ fontSize: 12, color: colors.muted, fontWeight: '600' }}>Imported</Text>
+                  </View>
+                  <View style={{ width: 1, backgroundColor: colors.border }} />
+                  <View style={{ alignItems: 'center' }}>
+                    <Text style={{ fontSize: 28, fontWeight: '800', color: colors.error }}>{csvResult.skipped}</Text>
+                    <Text style={{ fontSize: 12, color: colors.muted, fontWeight: '600' }}>Skipped</Text>
+                  </View>
+                </View>
+                <Text style={{ fontSize: 12, color: colors.muted, textAlign: 'center', marginTop: 8 }}>
+                  Skipped rows had missing or invalid phone numbers.
+                </Text>
+                <Text style={{ fontSize: 11, color: colors.muted, marginTop: 6, textAlign: 'center' }}>
+                  CSV format: <Text style={{ fontWeight: '700' }}>name, phone</Text> (one per row)
+                </Text>
+              </View>
+              <Pressable
+                style={s.primaryBtn}
+                onPress={() => setCsvResult(null)}
+              >
+                <Text style={s.primaryBtnText}>Done</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
       )}
 
       {/* Add Customer Modal */}
@@ -490,6 +594,11 @@ const s = StyleSheet.create({
     paddingHorizontal: 12, paddingVertical: 8, borderRadius: radius.md, ...shadow.card,
   },
   exportBtnText: { color: '#fff', fontSize: 12, fontWeight: '700' },
+  importBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: colors.surface,
+    paddingHorizontal: 12, paddingVertical: 8, borderRadius: radius.md, borderWidth: 1, borderColor: colors.brandPrimary,
+  },
+  importBtnText: { color: colors.brandPrimary, fontSize: 12, fontWeight: '700' },
   card: {
     backgroundColor: colors.surfaceSecondary, borderRadius: radius.lg, padding: spacing.lg,
     marginBottom: spacing.md, ...shadow.card,

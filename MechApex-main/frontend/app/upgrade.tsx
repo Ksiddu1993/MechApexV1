@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  View, Text, StyleSheet, ScrollView, Pressable, ActivityIndicator, Modal, Alert,
+  View, Text, StyleSheet, ScrollView, Pressable, ActivityIndicator, Modal, Alert, Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
@@ -8,6 +8,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, radius, shadow, font } from '@/src/theme';
 import { api, getUser, saveUser } from '@/src/api';
 import { inr } from '@/src/utils/format';
+
+const UPI_ID = '8904600880@upi';
+const UPI_NAME = 'MechApex';
+const UPI_NOTE = 'MechApex Job Card Package';
 
 const PACKAGES = [
   {
@@ -68,17 +72,40 @@ export default function Upgrade() {
   const [buying, setBuying] = useState(false);
   const [successOpen, setSuccessOpen] = useState(false);
   const [purchasedLimit, setPurchasedLimit] = useState(0);
+  const [upiConfirmOpen, setUpiConfirmOpen] = useState(false);
+  const [pendingPkg, setPendingPkg] = useState<any>(null);
 
   useEffect(() => {
     getUser().then(setUser);
   }, []);
 
   async function handleBuy(pkg: any) {
-    setSelectedPkg(pkg);
+    // Open UPI payment app first
+    setPendingPkg(pkg);
+    const upiUrl = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${pkg.price}&cu=INR&tn=${encodeURIComponent(UPI_NOTE + ' - ' + pkg.title)}`;
+    try {
+      const supported = await Linking.canOpenURL(upiUrl);
+      if (supported) {
+        await Linking.openURL(upiUrl);
+      } else {
+        // Fallback: open PhonePe/GPay link or show manual instructions
+        await Linking.openURL(`https://upipay.in/?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${pkg.price}`);
+      }
+    } catch {
+      // If UPI app not found, still show confirm dialog
+    }
+    // Show confirmation modal after UPI app opens
+    setUpiConfirmOpen(true);
+  }
+
+  async function confirmPaymentDone() {
+    if (!pendingPkg) return;
+    setUpiConfirmOpen(false);
+    setSelectedPkg(pendingPkg);
     setBuying(true);
     try {
-      const res = await api.upgradePackage(pkg.id);
-      setPurchasedLimit(res.job_card_limit || (user?.job_card_limit || 100) + pkg.cards);
+      const res = await api.upgradePackage(pendingPkg.id);
+      setPurchasedLimit(res.job_card_limit || (user?.job_card_limit || 100) + pendingPkg.cards);
       const freshUser = await api.me();
       await saveUser(freshUser);
       setUser(freshUser);
@@ -87,6 +114,7 @@ export default function Upgrade() {
       Alert.alert('Upgrade Error', e?.message || 'Could not complete package upgrade.');
     } finally {
       setBuying(false);
+      setPendingPkg(null);
     }
   }
 
@@ -159,12 +187,54 @@ export default function Upgrade() {
               {buying && selectedPkg?.id === pkg.id ? (
                 <ActivityIndicator color="#fff" />
               ) : (
-                <Text style={s.buyBtnText}>Upgrade for {inr(pkg.price)}</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                  <Ionicons name="qr-code-outline" size={18} color="#fff" />
+                  <Text style={s.buyBtnText}>Pay ₹{pkg.price} via UPI</Text>
+                </View>
               )}
             </Pressable>
           </View>
         ))}
       </ScrollView>
+
+      {/* UPI Confirm Modal */}
+      <Modal visible={upiConfirmOpen} transparent animationType="fade" onRequestClose={() => setUpiConfirmOpen(false)}>
+        <View style={s.modalBg}>
+          <View style={s.modalCard}>
+            <View style={s.upiIconWrap}>
+              <Ionicons name="phone-portrait-outline" size={40} color={colors.brandPrimary} />
+            </View>
+            <Text style={s.modalTitle}>Complete Payment</Text>
+            <Text style={s.modalDesc}>
+              Pay <Text style={{ fontWeight: '800', color: colors.brandPrimary }}>₹{pendingPkg?.price}</Text> to:
+            </Text>
+            <View style={s.upiBox}>
+              <Ionicons name="qr-code" size={20} color={colors.brandPrimary} />
+              <View style={{ marginLeft: 8 }}>
+                <Text style={s.upiId}>{UPI_ID}</Text>
+                <Text style={s.upiNote}>{UPI_NAME}</Text>
+              </View>
+            </View>
+            <Text style={{ fontSize: 12, color: colors.muted, textAlign: 'center', marginBottom: 16 }}>
+              After completing the payment in your UPI app, tap the button below to activate your package.
+            </Text>
+            <Pressable
+              style={s.modalBtn}
+              onPress={confirmPaymentDone}
+              testID="upi-confirm-paid"
+            >
+              <Text style={s.modalBtnText}>✓ I Have Paid — Activate Package</Text>
+            </Pressable>
+            <Pressable
+              style={s.cancelBtn}
+              onPress={() => { setUpiConfirmOpen(false); setPendingPkg(null); }}
+              testID="upi-confirm-cancel"
+            >
+              <Text style={s.cancelBtnText}>Cancel</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
 
       {/* Success Modal */}
       <Modal visible={successOpen} transparent animationType="fade" onRequestClose={() => setSuccessOpen(false)}>
@@ -249,8 +319,14 @@ const s = StyleSheet.create({
   modalBg: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'center', alignItems: 'center', padding: spacing.lg },
   modalCard: { backgroundColor: colors.surfaceSecondary, borderRadius: radius.lg, padding: spacing.lg, alignItems: 'center', width: '100%' },
   successIconWrap: { marginBottom: spacing.md },
+  upiIconWrap: { marginBottom: spacing.md, width: 70, height: 70, borderRadius: 35, backgroundColor: colors.brandTertiary, alignItems: 'center', justifyContent: 'center' },
+  upiBox: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surface, borderRadius: radius.md, padding: 14, marginBottom: 12, width: '100%', borderWidth: 1, borderColor: colors.brandPrimary },
+  upiId: { fontSize: 16, fontWeight: '800', color: colors.brandPrimary },
+  upiNote: { fontSize: 12, color: colors.muted, marginTop: 2 },
   modalTitle: { fontSize: 20, fontWeight: '800', color: colors.onSurface, textAlign: 'center', marginBottom: 8 },
-  modalDesc: { fontSize: 14, color: colors.muted, textAlign: 'center', marginBottom: spacing.lg },
-  modalBtn: { backgroundColor: colors.brandPrimary, borderRadius: radius.md, paddingVertical: 12, paddingHorizontal: 28 },
+  modalDesc: { fontSize: 14, color: colors.muted, textAlign: 'center', marginBottom: spacing.md },
+  modalBtn: { backgroundColor: colors.brandPrimary, borderRadius: radius.md, paddingVertical: 12, paddingHorizontal: 20, width: '100%', alignItems: 'center', marginBottom: 8 },
   modalBtnText: { color: '#fff', fontWeight: '800', fontSize: 15 },
+  cancelBtn: { paddingVertical: 10, paddingHorizontal: 20 },
+  cancelBtnText: { color: colors.muted, fontWeight: '600', fontSize: 14 },
 });
