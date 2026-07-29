@@ -70,6 +70,9 @@ export default function More() {
             <Row icon="people-outline" label={t('sub_users')} onPress={() => router.push('/subusers')} testID="more-subusers" />
           )}
           {isMain && (
+            <Row icon="construct-outline" label="Service Catalog" onPress={() => router.push('/(tabs)/services')} testID="more-services" />
+          )}
+          {isMain && (
             <Row icon="bar-chart-outline" label={t('analytics')} onPress={() => router.push('/(tabs)/analytics')} testID="more-analytics" />
           )}
         </View>

@@ -54,12 +54,12 @@ export default function TabsLayout() {
         }}
       />
 
-      {/* Service Catalog — owner only */}
+
+      {/* Service Catalog — owner only, accessed via More tab */}
       <Tabs.Screen
         name="services"
         options={{
-          title: 'Services',
-          href: isOwner ? '/(tabs)/services' : null,
+          href: null,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'construct' : 'construct-outline'} color={color} size={22} />
           ),
