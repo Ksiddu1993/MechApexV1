@@ -1,0 +1,132 @@
+{
+  "app_name": "GarageFlow",
+  "personality": "1 iOS-Native Clean",
+  "personality_one_liner": "A highly readable, industrial-clean utility interface that prioritizes fast visual parsing for mechanics and service advisors on the shop floor.",
+  "color": {
+    "surface": "#F3F4F6", 
+    "onSurface": "#111827",
+    "surfaceSecondary": "#FFFFFF", 
+    "onSurfaceSecondary": "#1F2937",
+    "surfaceTertiary": "#E5E7EB", 
+    "onSurfaceTertiary": "#374151",
+    "surfaceInverse": "#111827", 
+    "onSurfaceInverse": "#F9FAFB",
+    "brand": "#BE123C",
+    "brandPrimary": "#BE123C", 
+    "onBrandPrimary": "#FFFFFF",
+    "brandSecondary": "#F43F5E", 
+    "onBrandSecondary": "#FFFFFF",
+    "brandTertiary": "#FFE4E6", 
+    "onBrandTertiary": "#881337",
+    "success": "#16A34A", 
+    "onSuccess": "#FFFFFF",
+    "warning": "#D97706", 
+    "onWarning": "#FFFFFF",
+    "error": "#DC2626", 
+    "onError": "#FFFFFF",
+    "info": "#475569", 
+    "onInfo": "#FFFFFF",
+    "border": "#E5E7EB", 
+    "borderStrong": "#9CA3AF", 
+    "divider": "#E5E7EB"
+  },
+  "typography": {
+    "displayFontFamily": "PlusJakartaSans",
+    "textFontFamily": "PlusJakartaSans",
+    "scale": { "sm": 12, "base": 14, "lg": 16, "xl": 20, "2xl": 24 }
+  },
+  "spacing": { "rule": "Generous padding around content, safe area clearance, thumb-friendly touch targets min 44pt.", "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24, "2xl": 32, "3xl": 48 },
+  "radius_tokens": { "sm": 6, "md": 12, "lg": 20, "pill": 999 },
+  "shadow_tier": "1",
+  "navigation": "bottom_tabs",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": "true",
+    "do's": ["Bottom tab bar (when content scrolls behind)", "Sticky headers over scrolling content", "Bottom-sheet headers"],
+    "dont's": ["List rows", "Form inputs", "Body content", "Every button"]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Login",
+      "purpose": "Email/password login with email OTP verification.",
+      "states": { "loading": "Centered spinner", "empty": "N/A", "error": "Readable message + Retry button" },
+      "layout": "Hero image at the top (classic red sports car) taking 40% of the screen with a gradient scrim fading to background. Below, a clean white card for the login form. Email input, Password input, 'Send OTP' button. Once OTP is sent, cross-fade to OTP input. Bottom CTA 'Login'."
+    },
+    {
+      "name": "Dashboard",
+      "purpose": "Overview of today's KPI stats (jobs, revenue, pending invoices, low stock) for service advisors.",
+      "states": { "loading": "Skeleton of grid metrics", "empty": "Illustration of empty garage + 'No data for today'", "error": "Fetch error + Retry" },
+      "layout": "Scrollable dashboard. Large bold title 'Overview'. Top section: 2-column grid of KPI cards (Jobs Today, Revenue, Pending Invoices, Low Stock) using surfaceSecondary, shadow 1, and brandTertiary tinted icons. Below: 'Recent Jobs' horizontal scroll or short list of 3 items. Bottom: 'AI Helper' banner with engine block background and gradient scrim, encouraging users to ask for recommendations."
+    },
+    {
+      "name": "Jobs",
+      "purpose": "List and create Job Cards/Work Orders linked to customers and vehicles.",
+      "states": { "loading": "Skeleton list", "empty": "Empty clipboard icon + 'No active jobs' + CTA 'Create Job'", "error": "Load error + Retry" },
+      "layout": "Header with 'Jobs' and '+' icon (or FAB). Segmented control (sticky, glass) for 'Open', 'In Progress', 'Completed'. Scrollable list of Job Cards. Each Job Card uses iOS-Native Clean layout: md padding, Vehicle Model & ID at top left, Status Badge (color-coded success/warning) at top right, Customer Name and brief scope below. Actionable footer inside the card with a secondary CTA ('Update Status'). Large touch targets."
+    },
+    {
+      "name": "Customers",
+      "purpose": "Directory of customers and their linked vehicles.",
+      "states": { "loading": "List skeleton", "empty": "User icon + 'No customers yet' + 'Add Customer'", "error": "Error fetching customers" },
+      "layout": "Search bar at the top (sticky). Alphabetical list of customers. Each row uses a tinted initials avatar (brandTertiary) if no photo. Shows Customer Name, Phone, and number of linked vehicles. Tap to view Customer Detail screen showing their full Vehicle Registry."
+    },
+    {
+      "name": "Inventory",
+      "purpose": "Manage spare parts and track low-stock items.",
+      "states": { "loading": "Skeleton inventory list", "empty": "Box icon + 'Inventory empty' + 'Add Item'", "error": "Error loading inventory" },
+      "layout": "Search bar + Filter (sticky). List of parts. Rows show Part Name, SKU, and Current Stock. If stock is low, a 'warning' colored badge or text appears. Tapping opens a bottom sheet to edit quantity."
+    },
+    {
+      "name": "AI Helper",
+      "purpose": "AI service recommendation helper with chat-like input.",
+      "states": { "loading": "Typing indicator...", "empty": "AI Engine icon + 'Describe the issue to get recommendations'", "error": "Connection error" },
+      "layout": "Chat interface. Bottom input area inside KeyboardAvoidingView. Bubbles for user query and AI response. AI responses use markdown styling with clear lists for recommended parts and labor hours."
+    }
+  ],
+  "images": {
+    "login_hero": {
+      "url": "https://images.pexels.com/photos/9545547/pexels-photo-9545547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Classic red sports car front view in studio"
+    },
+    "dashboard_empty": {
+      "url": "https://images.unsplash.com/photo-1619336208438-f8733b5b0df7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMGF1dG8lMjByZXBhaXIlMjBnYXJhZ2UlMjBlbXB0eXxlbnwwfHx8fDE3ODQzNzgyOTN8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Clean modern empty repair garage"
+    },
+    "ai_helper_banner": {
+      "url": "https://images.pexels.com/photos/11455717/pexels-photo-11455717.jpeg",
+      "alt": "Detailed close up of a modern metallic car engine"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Strictly adhere to the 1 iOS-Native Clean personality. Use PlusJakartaSans font family and generous spacing.",
+    "Implement the 'Jobs' tab with card-based list views. Ensure each card has a clear status badge (Open/In Progress/Completed) utilizing the defined success/warning/info status colors.",
+    "BANNED colors: Indigo, violet, purple, blue, navy, orange, terracotta are strictly avoided. The brand uses a mechanical Deep Burgundy (#BE123C).",
+    "Use Phosphor icons consistently (one weight/style per screen, except the tab bar which can be outlined-inactive / filled-active).",
+    "For the login hero image, MUST apply the gradient-to-dark scrim pattern (Layer 1: expo-linear-gradient vertical fade to surfaceInverse) so text overlaid is readable.",
+    "Use sticky primary CTA buttons at the bottom of the screen (above safe area) where applicable (e.g., 'Login', 'Create Job', 'Send OTP').",
+    "Apply glassmorphism (expo-glass-effect / expo-blur) to the bottom tab bar and sticky headers where content scrolls behind them.",
+    "All tap targets must be minimum 44x44pt. Use hitSlop for smaller visual icons.",
+    "Include bottom sheet using @gorhom/bottom-sheet for quick edits like Inventory quantity updates.",
+    "Serialize subtle haptics on feature actions (primary buttons, tab items, segmented controls)."
+  ],
+  "haptics": {
+    "events": {
+      "tab_press": "selection",
+      "primary_button_press": "light",
+      "status_update": "success",
+      "error_alert": "error"
+    }
+  }
+}
