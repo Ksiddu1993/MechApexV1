@@ -87,6 +87,11 @@ export const api = {
   createCustomer: (body: any) => req('/customers', { method: 'POST', body: JSON.stringify(body) }),
   lookupCustomer: (phone: string) => req(`/customers/lookup?phone=${encodeURIComponent(phone)}`),
 
+  listServices: () => req('/services'),
+  createService: (body: any) => req('/services', { method: 'POST', body: JSON.stringify(body) }),
+  updateService: (id: string, body: any) => req(`/services/${id}`, { method: 'PATCH', body: JSON.stringify(body) }),
+  deleteService: (id: string) => req(`/services/${id}`, { method: 'DELETE' }),
+
   analytics: (year?: number, month?: number) => {
     const qs = [year ? `year=${year}` : '', month ? `month=${month}` : ''].filter(Boolean).join('&');
     return req(`/analytics${qs ? `?${qs}` : ''}`);

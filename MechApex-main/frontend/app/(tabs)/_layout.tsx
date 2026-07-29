@@ -11,6 +11,8 @@ export default function TabsLayout() {
 
   useEffect(() => { getUser().then(u => u && setRole(u.role || 'main')); }, []);
 
+  const isOwner = role === 'main';
+
   return (
     <Tabs
       screenOptions={{
@@ -39,20 +41,36 @@ export default function TabsLayout() {
           <Ionicons name={focused ? 'clipboard' : 'clipboard-outline'} color={color} size={22} />
         )}}
       />
+
+      {/* Customers — hidden for workers */}
       <Tabs.Screen
         name="customers"
         options={{
           title: 'Customers',
+          href: isOwner ? '/(tabs)/customers' : null,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'people' : 'people-outline'} color={color} size={22} />
           ),
         }}
       />
+
+      {/* Service Catalog — owner only */}
+      <Tabs.Screen
+        name="services"
+        options={{
+          title: 'Services',
+          href: isOwner ? '/(tabs)/services' : null,
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'construct' : 'construct-outline'} color={color} size={22} />
+          ),
+        }}
+      />
+
       <Tabs.Screen
         name="analytics"
         options={{
           title: t('analytics'),
-          href: role === 'sub' ? null : '/(tabs)/analytics',
+          href: isOwner ? '/(tabs)/analytics' : null,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'bar-chart' : 'bar-chart-outline'} color={color} size={22} />
           ),

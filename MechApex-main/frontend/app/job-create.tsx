@@ -177,10 +177,11 @@ export default function JobCreate() {
             </View>
           )}
 
+          <Field label="Customer Name" value={customerName} onChangeText={setCustomerName} testID="jc-cust-name" placeholder="Full name" />
+
           <Field label="Mobile Number" value={customerPhone} onChangeText={handlePhoneChange} keyboardType="phone-pad" testID="jc-cust-phone" placeholder="10-digit mobile number" maxLength={10} />
           {lookingUp && <ActivityIndicator size="small" color={colors.brandPrimary} style={{ alignSelf: 'flex-start', marginBottom: 8 }} />}
 
-          <Field label="Customer Name" value={customerName} onChangeText={setCustomerName} testID="jc-cust-name" placeholder="Full name" />
 
           <SectionTitle title="VEHICLE DETAILS" />
           <LabelPicker label="Brand" value={brand} placeholder="Select brand" onPress={() => setPicker('brand')} testID="jc-brand-picker" />

@@ -226,6 +226,20 @@ class PhotoIn(BaseModel):
     note: Optional[str] = None
 
 
+class ServiceCatalogIn(BaseModel):
+    name: str
+    category: str  # 'service', 'part', 'wash'
+    price: float
+    vehicle_class: Optional[str] = "both"  # 'two_wheeler', 'four_wheeler', 'both'
+
+
+class ServiceCatalogPatch(BaseModel):
+    name: Optional[str] = None
+    category: Optional[str] = None
+    price: Optional[float] = None
+    vehicle_class: Optional[str] = None
+
+
 # ---------------- Auth ----------------
 @api_router.post("/auth/send-otp")
 async def send_otp(body: SendOtpIn):
@@ -389,6 +403,55 @@ async def catalog():
         "default_services_four_wheeler": DEFAULT_SERVICES_FOUR_WHEELER,
         "checklist": STANDARD_CHECKLIST,
     }
+
+
+# ---------------- Service Catalog (Owner-editable) ----------------
+@api_router.get("/services")
+async def list_services(u=Depends(current_user)):
+    org = org_id_of(u)
+    items = await db.service_catalog.find({"org_id": org}, {"_id": 0}).sort("vehicle_class", 1).to_list(500)
+    if not items:
+        defaults = []
+        for item in DEFAULT_SERVICES_TWO_WHEELER:
+            defaults.append({"id": str(uuid.uuid4()), "org_id": org, "name": item["name"], "category": item["category"], "price": item["price"], "vehicle_class": "two_wheeler", "created_at": datetime.utcnow().isoformat()})
+        for item in DEFAULT_SERVICES_FOUR_WHEELER:
+            defaults.append({"id": str(uuid.uuid4()), "org_id": org, "name": item["name"], "category": item["category"], "price": item["price"], "vehicle_class": "four_wheeler", "created_at": datetime.utcnow().isoformat()})
+        if defaults:
+            await db.service_catalog.insert_many([dict(d) for d in defaults])
+        items = await db.service_catalog.find({"org_id": org}, {"_id": 0}).sort("vehicle_class", 1).to_list(500)
+    return items
+
+
+@api_router.post("/services")
+async def create_service(body: ServiceCatalogIn, u=Depends(current_user)):
+    if u.get("role") != "main":
+        raise HTTPException(status_code=403, detail="Only the owner can manage the service catalog")
+    org = org_id_of(u)
+    doc = {"id": str(uuid.uuid4()), "org_id": org, "name": body.name.strip(), "category": body.category, "price": body.price, "vehicle_class": body.vehicle_class or "both", "created_at": datetime.utcnow().isoformat()}
+    await db.service_catalog.insert_one(doc)
+    doc.pop("_id", None)
+    return doc
+
+
+@api_router.patch("/services/{item_id}")
+async def update_service(item_id: str, body: ServiceCatalogPatch, u=Depends(current_user)):
+    if u.get("role") != "main":
+        raise HTTPException(status_code=403, detail="Only the owner can manage the service catalog")
+    org = org_id_of(u)
+    upd = {k: v for k, v in body.dict().items() if v is not None}
+    if upd:
+        await db.service_catalog.update_one({"org_id": org, "id": item_id}, {"$set": upd})
+    doc = await db.service_catalog.find_one({"org_id": org, "id": item_id}, {"_id": 0})
+    return doc
+
+
+@api_router.delete("/services/{item_id}")
+async def delete_service(item_id: str, u=Depends(current_user)):
+    if u.get("role") != "main":
+        raise HTTPException(status_code=403, detail="Only the owner can manage the service catalog")
+    org = org_id_of(u)
+    await db.service_catalog.delete_one({"org_id": org, "id": item_id})
+    return {"ok": True}
 
 
 # ---------------- Jobs ----------------
