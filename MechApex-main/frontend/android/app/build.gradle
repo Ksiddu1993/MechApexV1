@@ -9,16 +9,13 @@ def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
  * By default you don't need to apply any configuration, just uncomment the lines you need.
  */
 react {
-    entryFile = file("C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/expo-router/entry.js")
-    reactNativeDir = file("C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native")
-    hermesCommand = "C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native/sdks/hermesc/%OS-BIN%/hermesc"
-    codegenDir = file("C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/@react-native/codegen")
-
+    entryFile = file("../../node_modules/expo-router/entry.js")
+    reactNativeDir = file("../../node_modules/react-native")
+    codegenDir = file("../../node_modules/@react-native/codegen")
     enableBundleCompression = (findProperty('android.enableBundleCompression') ?: false).toBoolean()
-    // Use Expo CLI to bundle the app, this ensures the Metro config
-    // works correctly with Expo projects.
-    cliFile = file("C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/expo/node_modules/@expo/cli/build/bin/cli")
     bundleCommand = "export:embed"
+    cliFile = file("../../node_modules/expo/node_modules/@expo/cli/build/bin/cli")
+    hermesCommand = "../../node_modules/react-native/sdks/hermesc/%OS-BIN%/hermesc"
 
     /* Folders */
      //   The root of your project, i.e. where "package.json" lives. Default is '../..'
