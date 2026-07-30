@@ -38,3 +38,14 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+# Build caches & logs
+android/.gradle/
+android/build/
+android/app/build/
+android/.artifacts/
+android/debug.log
+*.log
+*.zip
+*.apk
+
