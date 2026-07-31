@@ -49,3 +49,6 @@ android/debug.log
 *.zip
 *.apk
 
+!**/gradle-wrapper.jar
+
+

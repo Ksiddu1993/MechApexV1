@@ -1,3 +1,0 @@
-- [x] Update `expo-modules-core/android/CMakeLists.txt` to ensure C++ linkage
-- [x] Update `expo-modules-core/android/src/fabric/CMakeLists.txt` to ensure C++ linkage
-- [x] Verify build with `./gradlew :expo-modules-core:buildCMakeDebug[arm64-v8a]`

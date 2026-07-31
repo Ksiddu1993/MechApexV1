@@ -149,8 +149,8 @@ export default function JobsList() {
                       <Text style={s.pillText}>{item.service_type === 'washing' ? 'Wash' : 'Service'}</Text>
                     </View>
                   </View>
-                  <Text style={s.model}>{item.vehicle_brand} {item.vehicle_model}</Text>
-                  <Text style={s.cust}>{item.customer_name} • {item.customer_phone}</Text>
+                  <Text style={s.custName}>{item.customer_name || 'Customer'}</Text>
+                  {item.customer_phone ? <Text style={s.custPhone}>{item.customer_phone}</Text> : null}
                 </View>
                 <StatusBadge status={item.status} />
               </View>
@@ -211,6 +211,8 @@ const s = StyleSheet.create({
   jcBadgeText: { color: colors.brandPrimary, fontSize: 10, fontWeight: '800' },
   model: { color: colors.muted, marginTop: 4, fontSize: 13 },
   cust: { color: colors.muted, fontSize: 12, marginTop: 4 },
+  custName: { fontSize: 14, fontWeight: '700', color: colors.onSurface, marginTop: 4 },
+  custPhone: { fontSize: 12, color: colors.muted, marginTop: 2 },
   cardFooter: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
     marginTop: spacing.md, paddingTop: spacing.md, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border,

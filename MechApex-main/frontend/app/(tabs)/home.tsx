@@ -27,6 +27,7 @@ export default function Home() {
   const [obOwnerName, setObOwnerName] = useState('');
   const [obGarageName, setObGarageName] = useState('');
   const [obPhone, setObPhone] = useState('');
+  const [services, setServices] = useState<any[]>([]);
   const [obAddress, setObAddress] = useState('');
   const [obGstin, setObGstin] = useState('');
   const [savingOb, setSavingOb] = useState(false);
@@ -36,6 +37,13 @@ export default function Home() {
     try {
       const [u, d] = await Promise.all([getUser(), api.dashboard()]);
       setUser(u); setDash(d);
+
+      if (u && u.role === 'main') {
+        try {
+          const svcs = await api.listServices();
+          setServices(svcs as any[]);
+        } catch {}
+      }
 
       // Check first-time login onboarding for owners
       if (u && u.role === 'main' && (!u.garage_name || !u.name)) {
@@ -166,6 +174,44 @@ export default function Home() {
               <StatusBadge status={j.status} />
             </Pressable>
           ))
+        )}
+
+        {/* Service Catalog (Owner Only) */}
+        {user?.role === 'main' && (
+          <View style={{ marginTop: spacing.lg }}>
+            <View style={s.sectionHeader}>
+              <Text style={s.section}>Service Catalog ({services.length})</Text>
+              <Pressable onPress={() => router.push('/(tabs)/services')} testID="home-manage-services">
+                <Text style={{ color: colors.brandPrimary, fontWeight: '700' }}>Manage</Text>
+              </Pressable>
+            </View>
+
+            {services.length === 0 ? (
+              <View style={s.empty}>
+                <Ionicons name="construct-outline" size={32} color={colors.muted} />
+                <Text style={{ color: colors.muted, marginTop: 6, fontSize: 13 }}>No services configured yet</Text>
+              </View>
+            ) : (
+              services.slice(0, 6).map((svc: any) => (
+                <View key={svc.id} style={s.svcRow}>
+                  <View style={s.svcIconWrap}>
+                    <Ionicons
+                      name={svc.category === 'wash' ? 'water' : svc.category === 'part' ? 'hardware-chip' : 'construct'}
+                      size={18}
+                      color={colors.brandPrimary}
+                    />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={s.svcName}>{svc.name}</Text>
+                    <Text style={s.svcCat}>
+                      {svc.category.toUpperCase()} • {svc.vehicle_class === 'two_wheeler' ? '2-Wheeler' : svc.vehicle_class === 'four_wheeler' ? '4-Wheeler' : 'All Vehicles'}
+                    </Text>
+                  </View>
+                  <Text style={s.svcPrice}>{inr(svc.price)}</Text>
+                </View>
+              ))
+            )}
+          </View>
         )}
       </ScrollView>
 
@@ -344,6 +390,18 @@ const s = StyleSheet.create({
     alignItems: 'center', padding: spacing.xxl,
     backgroundColor: colors.surfaceSecondary, borderRadius: radius.lg, ...shadow.card,
   },
+  svcRow: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    backgroundColor: colors.surfaceSecondary, borderRadius: radius.md,
+    padding: spacing.md, marginBottom: 8, ...shadow.card,
+  },
+  svcIconWrap: {
+    width: 36, height: 36, borderRadius: 18, backgroundColor: colors.brandTertiary,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  svcName: { color: colors.onSurface, fontSize: 14, fontWeight: '700' },
+  svcCat: { color: colors.muted, fontSize: 11, marginTop: 2 },
+  svcPrice: { color: colors.brandPrimary, fontSize: 15, fontWeight: '800' },
   modalWrap: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.45)' },
   sheet: { backgroundColor: colors.surfaceSecondary, borderTopLeftRadius: 24, borderTopRightRadius: 24, padding: spacing.lg, paddingBottom: spacing.xxl },
   grabber: { width: 40, height: 4, borderRadius: 2, backgroundColor: colors.border, alignSelf: 'center', marginBottom: spacing.md },

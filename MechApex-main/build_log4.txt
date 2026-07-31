@@ -1,0 +1,901 @@
+﻿> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava NO-SOURCE
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:processResources NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-module-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-module-gradle-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:compileKotlin UP-TO-DATE
+> Task :expo-module-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :expo-module-gradle-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:compileJava NO-SOURCE
+> Task :expo-module-gradle-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-module-gradle-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:jar UP-TO-DATE
+
+> Configure project :app
+ ??  [33mApplying gradle plugin[0m '[32mexpo-max-sdk-override-plugin[0m'
+  [expo-max-sdk-override-plugin] This plugin will find all permissions declared with `android:maxSdkVersion`. If there exists a declaration with the `android:maxSdkVersion` annotation and another one without, the plugin will remove the annotation from the final merged manifest. In order to see a log with the changes run a clean build of the app.
+android.packagingOptions.pickFirsts += [**/libc++_shared.so] (1)
+
+> Configure project :
+[32m[ExpoRootProject][0m Using the following versions:
+  - buildTools:  [32m35.0.0[0m
+  - minSdk:      [32m24[0m
+  - compileSdk:  [32m35[0m
+  - targetSdk:   [32m34[0m
+  - ndk:         [32m27.1.12297006[0m
+  - kotlin:      [32m2.1.20[0m
+  - ksp:         [32m2.1.20-2.0.1[0m
+
+> Configure project :expo-modules-core
+Linking react-native-worklets native libs into expo-modules-core build tasks
+task ':react-native-worklets:mergeDebugNativeLibs'
+task ':react-native-worklets:mergeReleaseNativeLibs'
+
+> Configure project :expo
+
+Using expo modules
+  - [32mexpo-log-box[0m (57.0.2)
+  - [32mexpo-constants[0m (57.0.8)
+  - [32mexpo-modules-core[0m (57.0.8)
+  - [33m[?][0m [32mexpo-dom-webview[0m (57.0.1)
+  - [33m[?][0m [32mexpo-ui[0m (57.0.8)
+  - [33m[?][0m [32mexpo-application[0m (57.0.2)
+  - [33m[?][0m [32mexpo-asset[0m (57.0.8)
+  - [33m[?][0m [32mexpo-blur[0m (57.0.2)
+  - [33m[?][0m [32mexpo-camera[0m (57.0.3)
+  - [33m[?][0m [32mexpo-file-system[0m (57.0.1)
+  - [33m[?][0m [32mexpo-font[0m (57.0.1)
+  - [33m[?][0m [32mexpo-haptics[0m (57.0.1)
+  - [33m[?][0m [32mexpo-image[0m (57.0.1)
+  - [33m[?][0m [32mexpo-image-loader[0m (57.0.1)
+  - [33m[?][0m [32mexpo-image-manipulator[0m (57.0.7)
+  - [33m[?][0m [32mexpo-image-picker[0m (57.0.7)
+  - [33m[?][0m [32mexpo-keep-awake[0m (57.0.1)
+  - [33m[?][0m [32mexpo-linear-gradient[0m (57.0.1)
+  - [33m[?][0m [32mexpo-linking[0m (57.0.4)
+  - [33m[?][0m [32mexpo-location[0m (57.0.7)
+  - [33m[?][0m [32mexpo-notifications[0m (57.0.8)
+  - [33m[?][0m [32mexpo-print[0m (57.0.1)
+  - [33m[?][0m [32mexpo-router[0m (57.0.9)
+  - [33m[?][0m [32mexpo-secure-store[0m (57.0.1)
+  - [33m[?][0m [32mexpo-sharing[0m (57.0.8)
+  - [33m[?][0m [32mexpo-splash-screen[0m (57.0.5)
+  - [33m[?][0m [32mexpo-status-bar[0m (57.0.1)
+  - [33m[?][0m [32mexpo-system-ui[0m (57.0.2)
+  - [33m[?][0m [32mexpo-web-browser[0m (57.0.2)
+
+
+> Task :app:generateAutolinkingNewArchitectureFiles
+> Task :app:generateAutolinkingPackageList
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generateReactNativeEntryPoint
+> Task :expo:generatePackagesList
+> Task :expo:preBuild
+
+> Task :expo-constants:createExpoConfig
+
+> Task :expo-constants:preBuild
+> Task :expo-log-box:preBuild UP-TO-DATE
+> Task :expo-modules-core:preBuild UP-TO-DATE
+.\gradlew : The NODE_ENV environment variable is required but was not specified. Ensure the project is bundled with 
+Expo CLI or NODE_ENV is set. Using only .env.local and .env
+At line:1 char:170
++ ... -Host "---Clean done---"; .\gradlew :app:assembleRelease 2>&1 | Out-F ...
++                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (The NODE_ENV en....local and .env:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Task :react-native-async-storage_async-storage:generateCodegenSchemaFromJavaScript
+> Task :react-native-async-storage_async-storage:generateCodegenArtifactsFromSchema
+> Task :react-native-async-storage_async-storage:preBuild
+> Task :react-native-gesture-handler:generateCodegenSchemaFromJavaScript
+> Task :react-native-gesture-handler:generateCodegenArtifactsFromSchema
+> Task :react-native-gesture-handler:preBuild
+> Task :react-native-masked-view_masked-view:preBuild UP-TO-DATE
+> Task :react-native-picker_picker:generateCodegenSchemaFromJavaScript
+> Task :react-native-picker_picker:generateCodegenArtifactsFromSchema
+> Task :react-native-picker_picker:preBuild
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask
+> Task :react-native-reanimated:assertWorkletsVersionTask
+> Task :react-native-reanimated:generateCodegenSchemaFromJavaScript
+> Task :react-native-reanimated:generateCodegenArtifactsFromSchema
+> Task :react-native-reanimated:prepareReanimatedHeadersForPrefabs
+> Task :react-native-reanimated:preBuild
+> Task :react-native-safe-area-context:generateCodegenSchemaFromJavaScript
+> Task :react-native-safe-area-context:generateCodegenArtifactsFromSchema
+> Task :react-native-safe-area-context:preBuild
+> Task :react-native-screens:generateCodegenSchemaFromJavaScript
+> Task :react-native-screens:generateCodegenArtifactsFromSchema
+> Task :react-native-screens:preBuild
+> Task :react-native-svg:generateCodegenSchemaFromJavaScript
+> Task :react-native-svg:generateCodegenArtifactsFromSchema
+> Task :react-native-svg:preBuild
+> Task :react-native-webview:generateCodegenSchemaFromJavaScript
+> Task :react-native-webview:generateCodegenArtifactsFromSchema
+> Task :react-native-webview:preBuild
+> Task :react-native-worklets:assertMinimalReactNativeVersionTask
+> Task :react-native-worklets:generateCodegenSchemaFromJavaScript
+> Task :react-native-worklets:generateCodegenArtifactsFromSchema
+> Task :react-native-worklets:prepareWorkletsHeadersForPrefabs
+> Task :react-native-worklets:preBuild
+> Task :app:preBuild
+> Task :app:preReleaseBuild
+> Task :react-native-reanimated:preReleaseBuild
+> Task :react-native-worklets:preReleaseBuild
+
+> Task :react-native-worklets:configureCMakeRelWithDebInfo[arm64-v8a]
+[CXX5304] This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+[CXX5304] This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+
+> Task :react-native-worklets:buildCMakeRelWithDebInfo[arm64-v8a][worklets]
+C/C++: ninja: Entering directory `C:\Users\pincode Dak\Downloads\MechApex-main\MechApex-main\frontend\node_modules\react-native-worklets\android\.cxx\RelWithDebInfo\2o663d5d\arm64-v8a'
+C/C++: ld.lld: error: undefined symbol: operator new(unsigned long)
+C/C++: >>> referenced by new:271 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/new:271)
+C/C++: >>>               CMakeFiles/worklets.dir/1c2c3ea3526e45ff8253a96f5f833529/JSIWorkletsModuleProxy.cpp.o:(worklets::JSIWorkletsModuleProxy::toOptimizedObject(facebook::jsi::Runtime&) const)
+C/C++: >>> referenced by new:271 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/new:271)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o:(worklets::WorkletsModule::WorkletsModule(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::WorkletsModule, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, worklets::BundleModeConfig const&, facebook::jsi::Runtime*, std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&))
+C/C++: >>> referenced by new:271 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/new:271)
+C/C++: >>>               CMakeFiles/worklets.dir/1c2c3ea3526e45ff8253a96f5f833529/JSIWorkletsModuleProxy.cpp.o:(worklets::JSIWorkletsModuleProxy::toOptimizedObject(facebook::jsi::Runtime&) const)
+C/C++: >>> referenced 457 more times
+C/C++: ld.lld: error: undefined symbol: std::__ndk1::__shared_mutex_base::__shared_mutex_base()
+C/C++: >>> referenced by shared_mutex:190 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/shared_mutex:190)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o:(worklets::WorkletsModule::WorkletsModule(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::WorkletsModule, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, worklets::BundleModeConfig const&, facebook::jsi::Runtime*, std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&))
+C/C++: >>> referenced by shared_mutex:190 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/shared_mutex:190)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(worklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+C/C++: >>> referenced by shared_mutex:190 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/shared_mutex:190)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/Registries/WorkletRuntimeRegistry.cpp.o:(_GLOBAL__sub_I_WorkletRuntimeRegistry.cpp)
+C/C++: ld.lld: error: undefined symbol: std::__ndk1::mutex::lock()
+C/C++: >>> referenced by lock_guard.h:35 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__mutex/lock_guard.h:35)
+C/C++: >>>               CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o:(worklets::AnimationFrameBatchinator::addToBatch(facebook::jsi::Function&&))
+C/C++: >>> referenced by unique_lock.h:41 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__mutex/unique_lock.h:41)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/AsyncQueueImpl.cpp.o:(worklets::AsyncQueueImpl::runLoop(std::__ndk1::shared_ptr<worklets::AsyncQueueState> const&))
+C/C++: >>> referenced by lock_guard.h:35 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__mutex/lock_guard.h:35)
+C/C++: >>>               CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o:(worklets::AnimationFrameBatchinator::pullCallbacks())
+C/C++: >>> referenced 27 more times
+C/C++: ld.lld: error: undefined symbol: std::__ndk1::__shared_weak_count::__release_weak()
+C/C++: >>> referenced by shared_ptr.h:184 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:184)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(worklets::WorkletsModuleProxy::start())
+C/C++: >>> referenced by shared_ptr.h:184 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:184)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(worklets::WorkletsModuleProxy::start())
+C/C++: >>> referenced by shared_ptr.h:184 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:184)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(worklets::WorkletsModuleProxy::start())
+C/C++: >>> referenced 747 more times
+C/C++: ld.lld: error: undefined symbol: std::__ndk1::condition_variable::wait(std::__ndk1::unique_lock<std::__ndk1::mutex>&)
+C/C++: >>> referenced by condition_variable.h:146 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__condition_variable/condition_variable.h:146)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/AsyncQueueImpl.cpp.o:(worklets::AsyncQueueImpl::runLoop(std::__ndk1::shared_ptr<worklets::AsyncQueueState> const&))
+C/C++: >>> referenced by ThreadSafeQueue.h:21 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/Tools/ThreadSafeQueue.h:21)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/UIScheduler.cpp.o:(worklets::ThreadSafeQueue<std::__ndk1::function<void ()>>::pop())
+C/C++: >>> referenced by condition_variable.h:146 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__condition_variable/condition_variable.h:146)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/SharedItems/SynchronizableAccess.cpp.o:(worklets::SynchronizableAccess::getBlockingBefore())
+C/C++: >>> referenced 3 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_allocate_exception
+C/C++: >>> referenced by StableApi.cpp:85 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:85)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by StableApi.cpp:93 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:93)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableWorklet> worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 63 more times
+C/C++: ld.lld: error: undefined symbol: operator delete(void*)
+C/C++: >>> referenced by function.h:250 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__functional/function.h:250)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(std::__ndk1::__function::__func<JNI_OnLoad::$_0, std::__ndk1::allocator<JNI_OnLoad::$_0>, void ()>::~__func())
+C/C++: >>> referenced by new:280 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/new:280)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(std::__ndk1::__function::__func<JNI_OnLoad::$_0, std::__ndk1::allocator<JNI_OnLoad::$_0>, void ()>::destroy_deallocate())
+C/C++: >>> referenced by new:280 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/new:280)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(worklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+C/C++: >>> referenced 1389 more times
+C/C++: ld.lld: error: undefined symbol: std::runtime_error::runtime_error(char const*)
+C/C++: >>> referenced by StableApi.cpp:85 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:85)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by StableApi.cpp:93 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:93)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by RuntimeBindings.h:54 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/WorkletRuntime/RuntimeBindings.h:54)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o:(worklets::extractNativeLoggingHookFromRNRuntime(facebook::jsi::Runtime&))
+C/C++: >>> referenced 8 more times
+C/C++: ld.lld: error: undefined symbol: typeinfo for std::runtime_error
+C/C++: >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableWorklet> worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 69 more times
+C/C++: ld.lld: error: undefined symbol: std::runtime_error::~runtime_error()
+C/C++: >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableWorklet> worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 69 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_throw
+C/C++: >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableWorklet> worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableScalar> worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 62 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_free_exception
+C/C++: >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(worklets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableWorklet> worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableScalar> worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 57 more times
+C/C++: ld.lld: error: undefined symbol: __dynamic_cast
+C/C++: >>> referenced by shared_ptr.h:1245 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:1245)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableWorklet> worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced by shared_ptr.h:1245 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:1245)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableScalar> worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced by shared_ptr.h:1245 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:1245)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableBigInt> worklets::extractSerializableOrThrow<worklets::SerializableBigInt>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 22 more times
+C/C++: ld.lld: error: undefined symbol: std::runtime_error::runtime_error(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&)
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableWorklet> worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableScalar> worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+C/C++: >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::__ndk1::shared_ptr<worklets::SerializableBigInt> worklets::extractSerializableOrThrow<worklets::SerializableBigInt>(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 23 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_guard_acquire
+C/C++: >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(worklets::AnimationFrameCallback::registerNatives())
+C/C++: >>> referenced by Hybrid.h:336 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Hybrid.h:336)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void (worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&))
+C/C++: >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::JField<facebook::jni::detail::JTypeFor<facebook::jni::detail::HybridData, facebook::jni::JObject, void>::_javaobject*> facebook::jni::detectHybrid<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>(facebook::jni::alias_ref<_jclass*>))
+C/C++: >>> referenced 26 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_guard_release
+C/C++: >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(worklets::AnimationFrameCallback::registerNatives())
+C/C++: >>> referenced by Hybrid.h:336 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Hybrid.h:336)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void (worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&))
+C/C++: >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::JField<facebook::jni::detail::JTypeFor<facebook::jni::detail::HybridData, facebook::jni::JObject, void>::_javaobject*> facebook::jni::detectHybrid<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>(facebook::jni::alias_ref<_jclass*>))
+C/C++: >>> referenced 26 more times
+C/C++: ld.lld: error: undefined symbol: std::__ndk1::__shared_weak_count::~__shared_weak_count()
+C/C++: >>> referenced by shared_ptr.h:263 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:263)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(worklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+C/C++: >>> referenced by shared_ptr.h:263 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:263)
+C/C++: >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(worklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+C/C++: >>> referenced by shared_ptr.h:263 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:263)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/JScriptBufferWrapper.cpp.o:(worklets::JScriptBufferWrapper::initHybridFromAssets(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::JScriptBufferWrapper, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::react::JAssetManager, facebook::jni::JObject, void>::_javaobject*>, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+C/C++: >>> referenced 161 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_guard_abort
+C/C++: >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(worklets::AnimationFrameCallback::registerNatives())
+C/C++: >>> referenced by Hybrid.h:336 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Hybrid.h:336)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void (worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&))
+C/C++: >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::JField<facebook::jni::detail::JTypeFor<facebook::jni::detail::HybridData, facebook::jni::JObject, void>::_javaobject*> facebook::jni::detectHybrid<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>(facebook::jni::alias_ref<_jclass*>))
+C/C++: >>> referenced 25 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_begin_catch
+C/C++: >>> referenced by Registration-inl.h:97 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:97)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::FunctionWrapper<void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&), facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*, void, double>::call(_JNIEnv*, _jobject*, double, void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&)))
+C/C++: >>> referenced by Registration-inl.h:130 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:130)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void (worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&))
+C/C++: >>> referenced by AnimationFrameBatchinator.cpp
+C/C++: >>>               CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o:(__clang_call_terminate)
+C/C++: >>> referenced 17 more times
+C/C++: ld.lld: error: undefined symbol: __cxa_end_catch
+C/C++: >>> referenced by Registration-inl.h:100 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:100)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::FunctionWrapper<void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&), facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*, void, double>::call(_JNIEnv*, _jobject*, double, void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&)))
+C/C++: >>> referenced by Registration-inl.h:100 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:100)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::FunctionWrapper<void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&), facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*, void, double>::call(_JNIEnv*, _jobject*, double, void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&)))
+C/C++: >>> referenced by Registration-inl.h:133 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:133)
+C/C++: >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void (worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, double&&))
+C/C++: >>> referenced 25 more times
+C/C++: ld.lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
+C/C++: CLANG_~1: error: linker command failed with exit code 1 (use -v to see invocation)
+C/C++: ninja: build stopped: subcommand failed.
+
+> Task :react-native-worklets:buildCMakeRelWithDebInfo[arm64-v8a][worklets] FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/pincode%20Dak/Downloads/MechApex-main/MechApex-main/frontend/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':react-native-worklets:buildCMakeRelWithDebInfo[arm64-v8a][worklets]'.
+> com.android.ide.common.process.ProcessException: ninja: Entering directory `C:\Users\pincode Dak\Downloads\MechApex-m
+ain\MechApex-main\frontend\node_modules\react-native-worklets\android\.cxx\RelWithDebInfo\2o663d5d\arm64-v8a'
+  [0/2] Re-checking globbed directories...
+  [1/39] Building CXX object CMakeFiles/worklets.dir/cmake_pch.hxx.pch
+  [2/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/Registries/WorkletRuntimeRegistry.cpp.o
+  [3/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/SharedItems/SynchronizableAccess.cpp.o
+  [4/39] Building CXX object CMakeFiles/worklets.dir/aad39cf907f6a593a5b7fdfaf20d4afe/SerializableRemoteFunction.cpp.o
+  [5/39] Building CXX object 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/SharedItems/MemoryManager.cpp.o
+  [6/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/SharedItems/Shareable.cpp.o
+  [7/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/SharedItems/SerializableFactory.cpp.o
+  [8/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o
+  [9/39] Building CXX object 
+CMakeFiles/worklets.dir/ce48a0897e39652f94c674045b6117b0/Common/cpp/worklets/Tools/JSLogger.cpp.o
+  [10/39] Building CXX object 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/SharedItems/Synchronizable.cpp.o
+  [11/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/AsyncQueueImpl.cpp.o
+  [12/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/Registries/EventHandlerRegistry.cpp.o
+  [13/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/FeatureFlags.cpp.o
+  [14/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/JSScheduler.cpp.o
+  [15/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/UIScheduler.cpp.o
+  [16/39] Building CXX object 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/SharedItems/Serializable.cpp.o
+  [17/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/EventLoop.cpp.o
+  [18/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/WorkletsVersion.cpp.o
+  [19/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/UIRuntimeDecorator.cpp.o
+  [20/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/WorkletsJSIUtils.cpp.o
+  [21/39] Building CXX object 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/Tools/WorkletEventHandler.cpp.o
+  [22/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/JSISerializer.cpp.o
+  [23/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/RuntimeManager.cpp.o
+  [24/39] Building CXX object CMakeFiles/worklets.dir/src/main/cpp/worklets/android/AndroidUIScheduler.cpp.o
+  [25/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/WorkletHermesRuntime.cpp.o
+  [26/39] Building CXX object CMakeFiles/worklets.dir/src/main/cpp/worklets/android/PlatformLogger.cpp.o
+  [27/39] Building CXX object CMakeFiles/worklets.dir/src/main/cpp/worklets/android/JWorkletRuntimeWrapper.cpp.o
+  [28/39] Building CXX object CMakeFiles/worklets.dir/34e79116609beb9962ddd19b785bc787/RNRuntimeWorkletDecorator.cpp.o
+  [29/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/HermesProfiling.cpp.o
+  [30/39] Building CXX object CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o
+  [31/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o
+  [32/39] Building CXX object 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/WorkletRuntime.cpp.o
+  [33/39] Building CXX object 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/VersionUtils.cpp.o
+  [34/39] Building CXX object CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o
+  [35/39] Building CXX object CMakeFiles/worklets.dir/src/main/cpp/worklets/android/JScriptBufferWrapper.cpp.o
+  [36/39] Building CXX object CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o
+  [37/39] Building CXX object CMakeFiles/worklets.dir/34e79116609beb9962ddd19b785bc787/WorkletRuntimeDecorator.cpp.o
+  [38/39] Building CXX object CMakeFiles/worklets.dir/1c2c3ea3526e45ff8253a96f5f833529/JSIWorkletsModuleProxy.cpp.o
+  [39/39] Linking CXX shared library 
+..\..\..\..\build\intermediates\cxx\RelWithDebInfo\2o663d5d\obj\arm64-v8a\libworklets.so
+  FAILED: ../../../../build/intermediates/cxx/RelWithDebInfo/2o663d5d/obj/arm64-v8a/libworklets.so 
+  cmd.exe /C "cd . && 
+C:\Users\PINCOD~1\AppData\Local\Android\Sdk\ndk\271~1.122\TOOLCH~1\llvm\prebuilt\WINDOW~1\bin\CLANG_~1.EXE 
+--target=aarch64-none-linux-android24 --sysroot="C:/Users/pincode 
+Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/windows-x86_64/sysroot" -fPIC -g -DANDROID 
+-fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes 
+-D__BIONIC_NO_PAGE_SIZE_MACRO -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -DWORKLETS_VERSION=0.10.1    -DWOR
+KLETS_FEATURE_FLAGS="[RUNTIME_TEST_FLAG:false][ENABLE_CROSS_RUNTIME_STACK_TRACES:true][FETCH_PREVIEW_ENABLED:false][IOS
+_DYNAMIC_FRAMERATE_ENABLED:true]" -fno-omit-frame-pointer -fstack-protector-all -DNDEBUG -O2 -g -DNDEBUG  
+-Wl,-z,max-page-size=16384 -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings 
+-Wl,--no-undefined -Qunused-arguments  -Wl,--gc-sections -shared -Wl,-soname,libworklets.so -o 
+..\..\..\..\build\intermediates\cxx\RelWithDebInfo\2o663d5d\obj\arm64-v8a\libworklets.so 
+CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o 
+CMakeFiles/worklets.dir/1c2c3ea3526e45ff8253a96f5f833529/JSIWorkletsModuleProxy.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/Registries/EventHandlerRegistry.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/Registries/WorkletRuntimeRegistry.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/AsyncQueueImpl.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/EventLoop.cpp.o 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/SharedItems/MemoryManager.cpp.o 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/SharedItems/Serializable.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/SharedItems/SerializableFactory.cpp.o 
+CMakeFiles/worklets.dir/aad39cf907f6a593a5b7fdfaf20d4afe/SerializableRemoteFunction.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/SharedItems/Shareable.cpp.o 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/SharedItems/Synchronizable.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/SharedItems/SynchronizableAccess.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/FeatureFlags.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/JSISerializer.cpp.o 
+CMakeFiles/worklets.dir/ce48a0897e39652f94c674045b6117b0/Common/cpp/worklets/Tools/JSLogger.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/JSScheduler.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/UIScheduler.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/VersionUtils.cpp.o 
+CMakeFiles/worklets.dir/29df3bcb70d4b91f289d9a9a3bd327af/worklets/Tools/WorkletEventHandler.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/WorkletsJSIUtils.cpp.o 
+CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/WorkletsVersion.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/HermesProfiling.cpp.o 
+CMakeFiles/worklets.dir/34e79116609beb9962ddd19b785bc787/RNRuntimeWorkletDecorator.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/RuntimeManager.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/UIRuntimeDecorator.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/WorkletHermesRuntime.cpp.o 
+CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/WorkletRuntime/WorkletRuntime.cpp.o 
+CMakeFiles/worklets.dir/34e79116609beb9962ddd19b785bc787/WorkletRuntimeDecorator.cpp.o 
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/AndroidUIScheduler.cpp.o 
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/JScriptBufferWrapper.cpp.o 
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/JWorkletRuntimeWrapper.cpp.o 
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/PlatformLogger.cpp.o 
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o 
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o  -landroid  -llog  "C:/Users/pincode Dak/.gr
+adle/caches/8.14.3/transforms/26c852b762d4b3fe86a6c6660e4980d6/transformed/react-android-0.86.2-release/prefab/modules/
+reactnative/libs/android.arm64-v8a/libreactnative.so"  "C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/26c852b76
+2d4b3fe86a6c6660e4980d6/transformed/react-android-0.86.2-release/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so"  
+"C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c33/transformed/fbjni-0.7.0/prefab/
+modules/fbjni/libs/android.arm64-v8a/libfbjni.so"  "C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/d10f6b0b405f5
+aa846434cdf6995ccf5/transformed/hermes-android-250829098.0.16-release/prefab/modules/hermesvm/libs/android.arm64-v8a/li
+bhermesvm.so"  -latomic -lm && cd ."
+  ld.lld: error: undefined symbol: operator new(unsigned long)
+  >>> referenced by new:271 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/
+windows-x86_64/sysroot/usr/include/c++/v1/new:271)
+  >>>               CMakeFiles/worklets.dir/1c2c3ea3526e45ff8253a96f5f833529/JSIWorkletsModuleProxy.cpp.o:(worklets::JS
+IWorkletsModuleProxy::toOptimizedObject(facebook::jsi::Runtime&) const)
+  >>> referenced by new:271 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/
+windows-x86_64/sysroot/usr/include/c++/v1/new:271)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o:(worklets::WorkletsModul
+e::WorkletsModule(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::Worklet
+sModule, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, 
+worklets::BundleModeConfig const&, facebook::jsi::Runtime*, std::__ndk1::shared_ptr<facebook::react::CallInvoker> 
+const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&))
+  >>> referenced by new:271 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/
+windows-x86_64/sysroot/usr/include/c++/v1/new:271)
+  >>>               CMakeFiles/worklets.dir/1c2c3ea3526e45ff8253a96f5f833529/JSIWorkletsModuleProxy.cpp.o:(worklets::JS
+IWorkletsModuleProxy::toOptimizedObject(facebook::jsi::Runtime&) const)
+  >>> referenced 457 more times
+  
+  ld.lld: error: undefined symbol: std::__ndk1::__shared_mutex_base::__shared_mutex_base()
+  >>> referenced by shared_mutex:190 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/shared_mutex:190)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o:(worklets::WorkletsModul
+e::WorkletsModule(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::Worklet
+sModule, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*>, 
+worklets::BundleModeConfig const&, facebook::jsi::Runtime*, std::__ndk1::shared_ptr<facebook::react::CallInvoker> 
+const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&))
+  >>> referenced by shared_mutex:190 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/shared_mutex:190)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(w
+orklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, 
+std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, 
+std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, 
+worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+  >>> referenced by shared_mutex:190 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/shared_mutex:190)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/Registries/WorkletRuntimeRegistry.cpp.o:(_
+GLOBAL__sub_I_WorkletRuntimeRegistry.cpp)
+  
+  ld.lld: error: undefined symbol: std::__ndk1::mutex::lock()
+  >>> referenced by lock_guard.h:35 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__mutex/lock_guard.h:35)
+  >>>               CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o:(worklets:
+:AnimationFrameBatchinator::addToBatch(facebook::jsi::Function&&))
+  >>> referenced by unique_lock.h:41 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__mutex/unique_lock.h:41)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/AsyncQueueImpl.cpp.o:
+(worklets::AsyncQueueImpl::runLoop(std::__ndk1::shared_ptr<worklets::AsyncQueueState> const&))
+  >>> referenced by lock_guard.h:35 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__mutex/lock_guard.h:35)
+  >>>               CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o:(worklets:
+:AnimationFrameBatchinator::pullCallbacks())
+  >>> referenced 27 more times
+  
+  ld.lld: error: undefined symbol: std::__ndk1::__shared_weak_count::__release_weak()
+  >>> referenced by shared_ptr.h:184 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:184)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(w
+orklets::WorkletsModuleProxy::start())
+  >>> referenced by shared_ptr.h:184 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:184)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(w
+orklets::WorkletsModuleProxy::start())
+  >>> referenced by shared_ptr.h:184 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:184)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(w
+orklets::WorkletsModuleProxy::start())
+  >>> referenced 747 more times
+  
+  ld.lld: error: undefined symbol: std::__ndk1::condition_variable::wait(std::__ndk1::unique_lock<std::__ndk1::mutex>&)
+  >>> referenced by condition_variable.h:146 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchai
+ns/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__condition_variable/condition_variable.h:146)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/RunLoop/AsyncQueueImpl.cpp.o:
+(worklets::AsyncQueueImpl::runLoop(std::__ndk1::shared_ptr<worklets::AsyncQueueState> const&))
+  >>> referenced by ThreadSafeQueue.h:21 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modu
+les/react-native-worklets/android/../Common/cpp/worklets/Tools/ThreadSafeQueue.h:21)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Tools/UIScheduler.cpp.o:(work
+lets::ThreadSafeQueue<std::__ndk1::function<void ()>>::pop())
+  >>> referenced by condition_variable.h:146 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchai
+ns/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__condition_variable/condition_variable.h:146)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/SharedItems/SynchronizableAccess.cpp.o:(wo
+rklets::SynchronizableAccess::getBlockingBefore())
+  >>> referenced 3 more times
+  
+  ld.lld: error: undefined symbol: __cxa_allocate_exception
+  >>> referenced by StableApi.cpp:85 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/
+react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:85)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by StableApi.cpp:93 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/
+react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:93)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableWorklet> 
+worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced 63 more times
+  
+  ld.lld: error: undefined symbol: operator delete(void*)
+  >>> referenced by function.h:250 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/pr
+ebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__functional/function.h:250)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(std::__ndk1::__function
+::__func<JNI_OnLoad::$_0, std::__ndk1::allocator<JNI_OnLoad::$_0>, void ()>::~__func())
+  >>> referenced by new:280 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/
+windows-x86_64/sysroot/usr/include/c++/v1/new:280)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(std::__ndk1::__function
+::__func<JNI_OnLoad::$_0, std::__ndk1::allocator<JNI_OnLoad::$_0>, void ()>::destroy_deallocate())
+  >>> referenced by new:280 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/
+windows-x86_64/sysroot/usr/include/c++/v1/new:280)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(w
+orklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, 
+std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, 
+std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, 
+worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+  >>> referenced 1389 more times
+  
+  ld.lld: error: undefined symbol: std::runtime_error::runtime_error(char const*)
+  >>> referenced by StableApi.cpp:85 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/
+react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:85)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by StableApi.cpp:93 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/
+react-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:93)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by RuntimeBindings.h:54 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modu
+les/react-native-worklets/android/../Common/cpp/worklets/WorkletRuntime/RuntimeBindings.h:54)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsModule.cpp.o:(worklets::extractNative
+LoggingHookFromRNRuntime(facebook::jsi::Runtime&))
+  >>> referenced 8 more times
+  
+  ld.lld: error: undefined symbol: typeinfo for std::runtime_error
+  >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/r
+eact-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/r
+eact-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableWorklet> 
+worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced 69 more times
+  
+  ld.lld: error: undefined symbol: std::runtime_error::~runtime_error()
+  >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/r
+eact-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/r
+eact-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableWorklet> 
+worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced 69 more times
+  
+  ld.lld: error: undefined symbol: __cxa_throw
+  >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/r
+eact-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableWorklet> 
+worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableScalar> 
+worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced 62 more times
+  
+  ld.lld: error: undefined symbol: __cxa_free_exception
+  >>> referenced by StableApi.cpp:0 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_modules/r
+eact-native-worklets/Common/cpp/worklets/Compat/StableApi.cpp:0)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(workl
+ets::extractSerializable(facebook::jsi::Runtime&, facebook::jsi::Value const&, std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&, worklets::Serializable::ValueType))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableWorklet> 
+worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableScalar> 
+worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced 57 more times
+  
+  ld.lld: error: undefined symbol: __dynamic_cast
+  >>> referenced by shared_ptr.h:1245 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm
+/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:1245)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableWorklet> 
+worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced by shared_ptr.h:1245 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm
+/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:1245)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableScalar> 
+worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced by shared_ptr.h:1245 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm
+/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:1245)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableBigInt> 
+worklets::extractSerializableOrThrow<worklets::SerializableBigInt>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced 22 more times
+  
+  ld.lld: error: undefined symbol: std::runtime_error::runtime_error(std::__ndk1::basic_string<char, 
+std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&)
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableWorklet> 
+worklets::extractSerializableOrThrow<worklets::SerializableWorklet>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableScalar> 
+worklets::extractSerializableOrThrow<worklets::SerializableScalar>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced by Serializable.h:132 (C:/Users/pincode Dak/Downloads/MechApex-main/MechApex-main/frontend/node_module
+s/react-native-worklets/android/../Common/cpp/worklets/SharedItems/Serializable.h:132)
+  >>>               CMakeFiles/worklets.dir/c99c023edef9a481c0a7abb788a68086/cpp/worklets/Compat/StableApi.cpp.o:(std::
+__ndk1::shared_ptr<worklets::SerializableBigInt> 
+worklets::extractSerializableOrThrow<worklets::SerializableBigInt>(facebook::jsi::Runtime&, facebook::jsi::Value 
+const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&))
+  >>> referenced 23 more times
+  
+  ld.lld: error: undefined symbol: __cxa_guard_acquire
+  >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73
+bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(worklets::AnimationFram
+eCallback::registerNatives())
+  >>> referenced by Hybrid.h:336 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c3
+3/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Hybrid.h:336)
+  >>>               
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void 
+(worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), 
+worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<face
+book::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&))
+  >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73
+bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::JField<f
+acebook::jni::detail::JTypeFor<facebook::jni::detail::HybridData, facebook::jni::JObject, void>::_javaobject*> 
+facebook::jni::detectHybrid<worklets::AnimationFrameCallback, 
+facebook::jni::detail::BaseHybridClass>(facebook::jni::alias_ref<_jclass*>))
+  >>> referenced 26 more times
+  
+  ld.lld: error: undefined symbol: __cxa_guard_release
+  >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73
+bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(worklets::AnimationFram
+eCallback::registerNatives())
+  >>> referenced by Hybrid.h:336 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c3
+3/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Hybrid.h:336)
+  >>>               
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void 
+(worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), 
+worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<face
+book::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&))
+  >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73
+bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::JField<f
+acebook::jni::detail::JTypeFor<facebook::jni::detail::HybridData, facebook::jni::JObject, void>::_javaobject*> 
+facebook::jni::detectHybrid<worklets::AnimationFrameCallback, 
+facebook::jni::detail::BaseHybridClass>(facebook::jni::alias_ref<_jclass*>))
+  >>> referenced 26 more times
+  
+  ld.lld: error: undefined symbol: std::__ndk1::__shared_weak_count::~__shared_weak_count()
+  >>> referenced by shared_ptr.h:263 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:263)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(w
+orklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, 
+std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, 
+std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, 
+worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+  >>> referenced by shared_ptr.h:263 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:263)
+  >>>               CMakeFiles/worklets.dir/5fa6516930222740fcf7fa0d6a31e312/NativeModules/WorkletsModuleProxy.cpp.o:(w
+orklets::WorkletsModuleProxy::WorkletsModuleProxy(facebook::jsi::Runtime&, 
+std::__ndk1::shared_ptr<facebook::react::CallInvoker> const&, std::__ndk1::shared_ptr<worklets::UIScheduler> const&, 
+std::__ndk1::function<bool ()>&&, std::__ndk1::shared_ptr<worklets::RuntimeBindings> const&, 
+worklets::BundleModeConfig const&, std::__ndk1::shared_ptr<worklets::RNRuntimeStatus> const&))
+  >>> referenced by shared_ptr.h:263 (C:/Users/pincode Dak/AppData/Local/Android/Sdk/ndk/27.1.12297006/toolchains/llvm/
+prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__memory/shared_ptr.h:263)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/JScriptBufferWrapper.cpp.o:(worklets::JScript
+BufferWrapper::initHybridFromAssets(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass
+<worklets::JScriptBufferWrapper, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, 
+void>::_javaobject*>, facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::react::JAssetManager, 
+facebook::jni::JObject, void>::_javaobject*>, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, 
+std::__ndk1::allocator<char>> const&))
+  >>> referenced 161 more times
+  
+  ld.lld: error: undefined symbol: __cxa_guard_abort
+  >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73
+bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(worklets::AnimationFram
+eCallback::registerNatives())
+  >>> referenced by Hybrid.h:336 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73bf8cb89c3
+3/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Hybrid.h:336)
+  >>>               
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void 
+(worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), 
+worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<face
+book::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&))
+  >>> referenced by CoreClasses-inl.h:683 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73
+bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/CoreClasses-inl.h:683)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::JField<f
+acebook::jni::detail::JTypeFor<facebook::jni::detail::HybridData, facebook::jni::JObject, void>::_javaobject*> 
+facebook::jni::detectHybrid<worklets::AnimationFrameCallback, 
+facebook::jni::detail::BaseHybridClass>(facebook::jni::alias_ref<_jclass*>))
+
+  >>> referenced 25 more times
+  
+  ld.lld: error: undefined symbol: __cxa_begin_catch
+  >>> referenced by Registration-inl.h:97 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc73
+bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:97)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::
+FunctionWrapper<void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::
+AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, 
+void>::_javaobject*>, double&&), 
+facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, 
+facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*, void, 
+double>::call(_JNIEnv*, _jobject*, double, void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::
+jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&)))
+  >>> referenced by Registration-inl.h:130 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc7
+3bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:130)
+  >>>               
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void 
+(worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), 
+worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<face
+book::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&))
+  >>> referenced by AnimationFrameBatchinator.cpp
+  >>>               
+CMakeFiles/worklets.dir/ee7209e487a37c8bb0d52fc2495164d6/AnimationFrameBatchinator.cpp.o:(__clang_call_terminate)
+  >>> referenced 17 more times
+  
+  ld.lld: error: undefined symbol: __cxa_end_catch
+  >>> referenced by Registration-inl.h:100 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc7
+3bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:100)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::
+FunctionWrapper<void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::
+AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, 
+void>::_javaobject*>, double&&), 
+facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, 
+facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*, void, 
+double>::call(_JNIEnv*, _jobject*, double, void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::
+jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&)))
+  >>> referenced by Registration-inl.h:100 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc7
+3bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:100)
+  >>>               CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::
+FunctionWrapper<void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::
+AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, 
+void>::_javaobject*>, double&&), 
+facebook::jni::detail::JTypeFor<facebook::jni::HybridClass<worklets::AnimationFrameCallback, 
+facebook::jni::detail::BaseHybridClass>::JavaPart, facebook::jni::JObject, void>::_javaobject*, void, 
+double>::call(_JNIEnv*, _jobject*, double, void (*)(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<facebook::
+jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&)))
+  >>> referenced by Registration-inl.h:133 (C:/Users/pincode Dak/.gradle/caches/8.14.3/transforms/3971f8b225647dd9a7dc7
+3bf8cb89c33/transformed/fbjni-0.7.0/prefab/modules/fbjni/include/fbjni/detail/Registration-inl.h:133)
+  >>>               
+CMakeFiles/worklets.dir/src/main/cpp/worklets/android/WorkletsOnLoad.cpp.o:(facebook::jni::detail::MethodWrapper<void 
+(worklets::AnimationFrameCallback::*)(double), &worklets::AnimationFrameCallback::onAnimationFrame(double), 
+worklets::AnimationFrameCallback, void, double>::dispatch(facebook::jni::alias_ref<facebook::jni::detail::JTypeFor<face
+book::jni::HybridClass<worklets::AnimationFrameCallback, facebook::jni::detail::BaseHybridClass>::JavaPart, 
+facebook::jni::JObject, void>::_javaobject*>, double&&))
+  >>> referenced 25 more times
+  
+  ld.lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
+  CLANG_~1: error: linker command failed with exit code 1 (use -v to see invocation)
+  ninja: build stopped: subcommand failed.
+  
+  C++ build system [build] failed while executing:
+      @echo off
+      "C:\\Users\\pincode Dak\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
+        -C ^
+        "C:\\Users\\pincode Dak\\Downloads\\MechApex-main\\MechApex-main\\frontend\\node_modules\\react-native-worklets
+\\android\\.cxx\\RelWithDebInfo\\2o663d5d\\arm64-v8a" ^
+        worklets
+    from C:\Users\pincode Dak\Downloads\MechApex-main\MechApex-main\frontend\node_modules\react-native-worklets\android
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 41s
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+58 actionable tasks: 30 executed, 28 up-to-date

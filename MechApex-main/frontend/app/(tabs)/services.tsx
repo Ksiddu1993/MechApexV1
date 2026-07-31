@@ -4,10 +4,10 @@ import {
   ActivityIndicator, Modal, TextInput, ScrollView, Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, radius, shadow } from '@/src/theme';
-import { api } from '@/src/api';
+import { api, getUser } from '@/src/api';
 import { AppHeader } from '@/src/components/AppHeader';
 import { inr } from '@/src/utils/format';
 
@@ -59,6 +59,11 @@ export default function Services() {
 
   const load = useCallback(async () => {
     try {
+      const u = await getUser();
+      if (u?.role === 'sub') {
+        router.replace('/(tabs)/home');
+        return;
+      }
       const data = await api.listServices();
       setItems(data as SvcItem[]);
     } catch {}

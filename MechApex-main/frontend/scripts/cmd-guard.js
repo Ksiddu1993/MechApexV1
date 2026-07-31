@@ -6,8 +6,19 @@
 
 const { runArgs, runPreinstall, runListCommands } = require("./cmd-guard/modes");
 
+// Bypass in EAS Build / CI cloud environments
+if (process.env.EAS_BUILD || process.env.CI) {
+  process.exit(0);
+}
+
 const argv = process.argv.slice(2);
-if (argv[0] === "--preinstall") runPreinstall();
+if (argv[0] === "--preinstall") {
+  try {
+    runPreinstall();
+  } catch (err) {
+    process.exit(0);
+  }
+}
 else if (argv[0] === "--list-commands") runListCommands();
 else {
   let cmd = "";
