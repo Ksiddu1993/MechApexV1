@@ -1,0 +1,26 @@
+# Subfolder .easignore
+node_modules/
+.expo/
+.metro-cache/
+dist/
+web-build/
+*.zip
+*.tar.gz
+*.apk
+*.aab
+MechApex-Complete-Project.zip
+backend/
+caches/
+daemon/
+kotlin-profile/
+native/
+!**/gradle-wrapper.jar
+!**/gradle-wrapper.properties
+workers/
+.tmp/
+.emergent/
+android/.gradle/
+android/build/
+android/app/build/
+android/app/.cxx/
+android/.cxx/

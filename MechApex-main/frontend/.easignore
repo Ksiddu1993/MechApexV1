@@ -1,0 +1,46 @@
+# Dependencies (EAS installs dependencies in cloud from package.json)
+node_modules/
+
+# Build artifacts & caches
+.expo/
+.metro-cache/
+dist/
+web-build/
+.kotlin/
+*.tsbuildinfo
+
+# Android local build output & Gradle/NDK caches
+android/.gradle/
+android/build/
+android/app/build/
+android/app/build/outputs/
+android/app/.cxx/
+android/.cxx/
+android/.artifacts/
+android/debug.log
+*.log
+*.zip
+*.tar.gz
+*.apk
+*.aab
+
+# Do NOT ignore gradle wrapper
+!**/gradle-wrapper.jar
+!**/gradle-wrapper.properties
+
+
+# Parent & root folder exclusions if running from monorepo
+backend/
+caches/
+daemon/
+kotlin-profile/
+native/
+workers/
+.tmp/
+.emergent/
+*.zip
+
+# OS & Environment
+.DS_Store
+*.pem
+.env*.local
