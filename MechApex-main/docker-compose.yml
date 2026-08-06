@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: mechapex_app
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - DB_NAME=garageflow_db
+      - JWT_SECRET=mechapex_production_jwt_secret_9988
+      - USE_MOCK_DB=false
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    container_name: mechapex_db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

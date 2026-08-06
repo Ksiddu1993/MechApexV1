@@ -70,9 +70,10 @@ export const shadow = {
   },
 };
 
-export const statusMeta: Record<string, { label: string; bg: string; fg: string }> = {
-  pending: { label: 'Pending', bg: '#FEF3C7', fg: '#92400E' },
-  in_progress: { label: 'In Progress', bg: '#DBEAFE', fg: '#1E40AF' },
-  ready: { label: 'Ready', bg: '#E9D5FF', fg: '#6B21A8' },
-  completed: { label: 'Completed', bg: '#DCFCE7', fg: '#166534' },
+export const statusMeta: Record<string, { label: string; bg: string; fg: string; dot: string }> = {
+  pending: { label: 'Pending', bg: '#FEF3C7', fg: '#92400E', dot: '#F59E0B' },
+  in_progress: { label: 'In Progress', bg: '#DBEAFE', fg: '#1E40AF', dot: '#2563EB' },
+  ready: { label: 'Ready', bg: '#F3E8FF', fg: '#6B21A8', dot: '#9333EA' },
+  completed: { label: 'Completed', bg: '#DCFCE7', fg: '#166534', dot: '#16A34A' },
 };
+

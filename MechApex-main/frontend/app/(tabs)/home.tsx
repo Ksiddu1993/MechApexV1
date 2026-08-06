@@ -137,7 +137,7 @@ export default function Home() {
 
         <View style={s.sectionHeader}>
           <Text style={s.section}>{t('recent_jobs')}</Text>
-          <Pressable onPress={() => router.push('/(tabs)/jobs')} testID="see-all-jobs">
+          <Pressable onPress={() => router.push('/jobs')} testID="see-all-jobs">
             <Text style={{ color: colors.brandPrimary, fontWeight: '700' }}>See all</Text>
           </Pressable>
         </View>
@@ -176,12 +176,69 @@ export default function Home() {
           ))
         )}
 
+        {/* Job Card Count Strip + Upgrade Gate (Owner Only) */}
+        {user?.role === 'main' && (() => {
+          const counts = dash?.counts || {};
+          const totalCount = (counts.pending || 0) + (counts.in_progress || 0) + (counts.ready || 0) + (counts.completed || 0);
+          const limit = user?.job_card_limit || 100;
+          const pct = Math.min((totalCount / limit) * 100, 100);
+          const isAtLimit = totalCount >= limit;
+
+          return (
+            <Pressable
+              style={[s.jobCountCard, isAtLimit && s.jobCountCardAlert]}
+              onPress={() => isAtLimit && router.push('/upgrade')}
+              testID="home-job-count-banner"
+            >
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                  <Ionicons
+                    name={isAtLimit ? 'warning' : 'layers-outline'}
+                    size={16}
+                    color={isAtLimit ? '#991B1B' : colors.brandPrimary}
+                  />
+                  <Text style={[s.jobCountTitle, isAtLimit && { color: '#991B1B' }]}>
+                    Job Cards Used
+                  </Text>
+                </View>
+                <Text style={[s.jobCountNum, isAtLimit && { color: '#991B1B' }]}>
+                  {totalCount} / {limit}
+                </Text>
+              </View>
+
+              {/* Progress bar */}
+              <View style={s.progressTrack}>
+                <View style={[
+                  s.progressFill,
+                  { width: `${pct}%` as any },
+                  isAtLimit ? { backgroundColor: '#DC2626' } : pct > 75 ? { backgroundColor: '#F59E0B' } : { backgroundColor: colors.brandPrimary },
+                ]} />
+              </View>
+
+              {isAtLimit ? (
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 }}>
+                  <Text style={{ fontSize: 11, color: '#7F1D1D', flex: 1 }}>
+                    Limit reached — tap to upgrade and unlock 500+ cards
+                  </Text>
+                  <View style={s.upgradeChip}>
+                    <Text style={s.upgradeChipText}>Upgrade Now</Text>
+                  </View>
+                </View>
+              ) : (
+                <Text style={{ fontSize: 11, color: colors.muted, marginTop: 6 }}>
+                  {limit - totalCount} job cards remaining on free plan
+                </Text>
+              )}
+            </Pressable>
+          );
+        })()}
+
         {/* Service Catalog (Owner Only) */}
         {user?.role === 'main' && (
           <View style={{ marginTop: spacing.lg }}>
             <View style={s.sectionHeader}>
               <Text style={s.section}>Service Catalog ({services.length})</Text>
-              <Pressable onPress={() => router.push('/(tabs)/services')} testID="home-manage-services">
+              <Pressable onPress={() => router.push('/services')} testID="home-manage-services">
                 <Text style={{ color: colors.brandPrimary, fontWeight: '700' }}>Manage</Text>
               </Pressable>
             </View>
@@ -415,4 +472,24 @@ const s = StyleSheet.create({
   primaryBtnText: { color: '#fff', fontSize: 16, fontWeight: '700' },
   errBanner: { backgroundColor: '#FEE2E2', padding: 10, borderRadius: radius.md, marginBottom: 12 },
   errText: { color: colors.error, fontSize: 13, fontWeight: '600', textAlign: 'center' },
+  jobCountCard: {
+    marginTop: spacing.lg, backgroundColor: colors.surfaceSecondary, borderRadius: radius.lg,
+    padding: spacing.lg, ...shadow.card, borderWidth: 1, borderColor: colors.border,
+  },
+  jobCountCardAlert: {
+    backgroundColor: '#FEF2F2', borderColor: '#FCA5A5',
+  },
+  jobCountTitle: { fontSize: 13, fontWeight: '700', color: colors.onSurface },
+  jobCountNum: { fontSize: 15, fontWeight: '800', color: colors.onSurface },
+  progressTrack: {
+    height: 6, backgroundColor: colors.border, borderRadius: 3, overflow: 'hidden',
+  },
+  progressFill: {
+    height: 6, borderRadius: 3, backgroundColor: colors.brandPrimary,
+  },
+  upgradeChip: {
+    backgroundColor: '#991B1B', paddingHorizontal: 10, paddingVertical: 5,
+    borderRadius: radius.sm, marginLeft: 8,
+  },
+  upgradeChipText: { color: '#fff', fontSize: 11, fontWeight: '800' },
 });

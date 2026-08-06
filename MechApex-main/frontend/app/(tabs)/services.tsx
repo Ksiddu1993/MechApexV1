@@ -61,7 +61,7 @@ export default function Services() {
     try {
       const u = await getUser();
       if (u?.role === 'sub') {
-        router.replace('/(tabs)/home');
+        router.replace('/home');
         return;
       }
       const data = await api.listServices();

@@ -9,8 +9,8 @@ export default function Index() {
     (async () => {
       const ok = await isAuthed();
       setTimeout(() => {
-        if (ok) router.replace('/(tabs)/home');
-        else router.replace('/(auth)/login');
+        if (ok) router.replace('/home');
+        else router.replace('/login');
       }, 40);
     })();
   }, []);

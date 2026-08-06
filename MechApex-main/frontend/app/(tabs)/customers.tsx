@@ -105,7 +105,7 @@ export default function Customers() {
     }
   }
 
-  function handleImportCsv() {
+  async function handleImportCsv() {
     if (Platform.OS === 'web') {
       // Web: use hidden file input
       const input = document.createElement('input');
@@ -144,10 +144,56 @@ export default function Customers() {
       };
       input.click();
     } else {
-      Alert.alert(
-        'Import CSV',
-        'CSV import is available on the web version of MechApex. Open the app in your browser to use this feature.'
-      );
+      // Mobile: use expo-document-picker + expo-file-system
+      setCsvImporting(true);
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const DocumentPicker = require('expo-document-picker');
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const FileSystem = require('expo-file-system');
+
+        const result = await DocumentPicker.getDocumentAsync({
+          type: ['text/csv', 'text/comma-separated-values', 'application/csv', '*/*'],
+          copyToCacheDirectory: true,
+        });
+
+        if (result.canceled || !result.assets?.[0]) {
+          setCsvImporting(false);
+          return;
+        }
+
+        const fileUri = result.assets[0].uri;
+        const text = await FileSystem.readAsStringAsync(fileUri, {
+          encoding: FileSystem.EncodingType.UTF8,
+        });
+
+        const rows = text.split('\n').map((r: string) => r.trim()).filter(Boolean);
+        const startIdx = rows[0]?.toLowerCase().includes('name') ? 1 : 0;
+        let imported = 0;
+        let skipped = 0;
+
+        for (let i = startIdx; i < rows.length; i++) {
+          const cols = rows[i].split(',').map((c: string) => c.trim().replace(/^"|"$/g, ''));
+          const name = cols[0];
+          const phone = cols[1]?.replace(/\D/g, '');
+          if (!name || !phone || phone.length < 10) { skipped++; continue; }
+          try {
+            await api.createCustomer({ name, phone });
+            imported++;
+          } catch {
+            skipped++;
+          }
+        }
+
+        setCsvResult({ imported, skipped });
+        load();
+      } catch (err: any) {
+        if (err?.code !== 'DOCUMENT_PICKER_CANCELED') {
+          Alert.alert('Import Error', 'Could not read the CSV file. Make sure it is a valid CSV with name and phone columns.');
+        }
+      } finally {
+        setCsvImporting(false);
+      }
     }
   }
 
@@ -183,14 +229,29 @@ export default function Customers() {
         photo={user?.photo_base64}
         title="Customers"
         rightAction={
-          <Pressable
-            style={s.addHeaderBtn}
-            onPress={() => setAddModalOpen(true)}
-            testID="header-add-customer"
-          >
-            <Ionicons name="person-add" size={16} color="#fff" />
-            <Text style={s.addHeaderBtnText}>Add</Text>
-          </Pressable>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+            <Pressable
+              style={s.addHeaderBtn}
+              onPress={() => setAddModalOpen(true)}
+              testID="header-add-customer"
+            >
+              <Ionicons name="person-add" size={15} color="#fff" />
+              <Text style={s.addHeaderBtnText}>Add</Text>
+            </Pressable>
+
+            <Pressable
+              style={[s.headerImportIconBtn, csvImporting && { opacity: 0.6 }]}
+              onPress={handleImportCsv}
+              disabled={csvImporting}
+              testID="import-customers-csv"
+            >
+              {csvImporting ? (
+                <ActivityIndicator size="small" color={colors.brandPrimary} />
+              ) : (
+                <Ionicons name="cloud-upload-outline" size={20} color={colors.onSurface} />
+              )}
+            </Pressable>
+          </View>
         }
       />
 
@@ -228,48 +289,21 @@ export default function Customers() {
                 <Text style={s.summaryValue}>{customers.length}</Text>
               </View>
 
-              <View style={{ flexDirection: 'row', gap: 8, flexWrap: 'wrap' }}>
-                <Pressable
-                  style={s.addCardBtn}
-                  onPress={() => setAddModalOpen(true)}
-                  testID="summary-add-customer"
-                >
-                  <Ionicons name="person-add-outline" size={15} color={colors.brandPrimary} />
-                  <Text style={s.addCardBtnText}>+ Customer</Text>
-                </Pressable>
-
-                <Pressable
-                  style={[s.importBtn, csvImporting && { opacity: 0.6 }]}
-                  onPress={handleImportCsv}
-                  disabled={csvImporting}
-                  testID="import-customers-csv"
-                >
-                  {csvImporting ? (
-                    <ActivityIndicator size="small" color={colors.brandPrimary} />
-                  ) : (
-                    <>
-                      <Ionicons name="cloud-upload-outline" size={15} color={colors.brandPrimary} />
-                      <Text style={s.importBtnText}>Import CSV</Text>
-                    </>
-                  )}
-                </Pressable>
-
-                <Pressable
-                  style={[s.exportBtn, exporting && { opacity: 0.6 }]}
-                  onPress={handleExport}
-                  disabled={exporting || customers.length === 0}
-                  testID="export-customers-csv"
-                >
-                  {exporting ? (
-                    <ActivityIndicator size="small" color="#fff" />
-                  ) : (
-                    <>
-                      <Ionicons name="document-text-outline" size={15} color="#fff" />
-                      <Text style={s.exportBtnText}>Export</Text>
-                    </>
-                  )}
-                </Pressable>
-              </View>
+              <Pressable
+                style={[s.exportBtn, exporting && { opacity: 0.6 }]}
+                onPress={handleExport}
+                disabled={exporting || customers.length === 0}
+                testID="export-customers-csv"
+              >
+                {exporting ? (
+                  <ActivityIndicator size="small" color="#fff" />
+                ) : (
+                  <>
+                    <Ionicons name="document-text-outline" size={15} color="#fff" />
+                    <Text style={s.exportBtnText}>Export CSV</Text>
+                  </>
+                )}
+              </Pressable>
             </View>
           }
           ListEmptyComponent={
@@ -570,6 +604,10 @@ const s = StyleSheet.create({
     paddingHorizontal: 10, paddingVertical: 6, borderRadius: radius.md, ...shadow.card,
   },
   addHeaderBtnText: { color: '#fff', fontSize: 12, fontWeight: '700' },
+  headerImportIconBtn: {
+    width: 36, height: 36, borderRadius: 18, backgroundColor: colors.surfaceSecondary,
+    alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: colors.border, ...shadow.card,
+  },
   searchWrap: { paddingHorizontal: spacing.lg, paddingBottom: spacing.sm },
   searchBar: {
     flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surfaceSecondary,

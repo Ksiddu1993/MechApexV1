@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable, FlatList, RefreshControl, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable, FlatList, RefreshControl, ActivityIndicator, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -43,11 +43,17 @@ export default function JobsList() {
   useFocusEffect(useCallback(() => { load(); }, [load]));
 
   async function handleExport() {
+    if (items.length === 0) {
+      Alert.alert('No Data', 'There are no job cards to export.');
+      return;
+    }
     setExporting(true);
     try {
       await exportJobsCsv(items);
-    } catch (e) {
-      console.error(e);
+      // On web the download triggers automatically; on mobile the share sheet opens.
+      // No additional alert needed — the OS handles it.
+    } catch (e: any) {
+      Alert.alert('Export Failed', e?.message || 'Could not export job cards. Please try again.');
     } finally {
       setExporting(false);
     }
@@ -55,7 +61,28 @@ export default function JobsList() {
 
   return (
     <SafeAreaView style={s.container} edges={['top']} testID="jobs-screen">
-      <AppHeader name={user?.name} photo={user?.photo_base64} title="Job Cards" />
+      <AppHeader
+        name={user?.name}
+        photo={user?.photo_base64}
+        title="Job Cards"
+        rightAction={
+          <Pressable
+            style={[s.headerExportBtn, (exporting || items.length === 0) && { opacity: 0.5 }]}
+            onPress={handleExport}
+            disabled={exporting || items.length === 0}
+            testID="export-jobs-csv"
+          >
+            {exporting ? (
+              <ActivityIndicator size="small" color={colors.brandPrimary} />
+            ) : (
+              <>
+                <Ionicons name="document-text-outline" size={16} color={colors.brandPrimary} />
+                <Text style={s.headerExportText}>Export CSV</Text>
+              </>
+            )}
+          </Pressable>
+        }
+      />
 
       {limitInfo?.limit_reached && user?.role === 'main' && (
         <Pressable
@@ -82,7 +109,7 @@ export default function JobsList() {
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ gap: 8 }}
+          contentContainerStyle={{ gap: 8, paddingHorizontal: spacing.lg }}
           style={s.chipsRow}
         >
           {FILTERS.map((f) => (
@@ -96,22 +123,6 @@ export default function JobsList() {
             </Pressable>
           ))}
         </ScrollView>
-
-        <Pressable
-          style={[s.exportBtn, exporting && { opacity: 0.6 }]}
-          onPress={handleExport}
-          disabled={exporting || items.length === 0}
-          testID="export-jobs-csv"
-        >
-          {exporting ? (
-            <ActivityIndicator size="small" color="#fff" />
-          ) : (
-            <>
-              <Ionicons name="document-text-outline" size={15} color="#fff" />
-              <Text style={s.exportBtnText}>Export CSV</Text>
-            </>
-          )}
-        </Pressable>
       </View>
 
       {loading ? (
@@ -131,29 +142,33 @@ export default function JobsList() {
           }
           renderItem={({ item }) => (
             <Pressable style={s.card} onPress={() => router.push(`/job/${item.id}`)} testID={`job-card-${item.id}`}>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <View style={{ flex: 1, paddingRight: 8 }}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                    <Ionicons
-                      name={item.vehicle_class === 'two_wheeler' ? 'bicycle' : 'car-sport'}
-                      size={16}
-                      color={colors.brandPrimary}
-                    />
-                    <Text style={s.regNo}>{item.vehicle_reg_no}</Text>
-                    {item.job_card_no ? (
-                      <View style={s.jcBadge}>
-                        <Text style={s.jcBadgeText}>{item.job_card_no}</Text>
-                      </View>
-                    ) : null}
-                    <View style={s.pill}>
-                      <Text style={s.pillText}>{item.service_type === 'washing' ? 'Wash' : 'Service'}</Text>
+              <View style={s.cardHeader}>
+                <View style={s.cardHeaderLeft}>
+                  <Ionicons
+                    name={item.vehicle_class === 'two_wheeler' ? 'bicycle' : 'car-sport'}
+                    size={18}
+                    color={colors.brandPrimary}
+                  />
+                  <Text style={s.regNo}>{item.vehicle_reg_no}</Text>
+                  {item.job_card_no ? (
+                    <View style={s.jcBadge}>
+                      <Text style={s.jcBadgeText}>{item.job_card_no}</Text>
                     </View>
-                  </View>
-                  <Text style={s.custName}>{item.customer_name || 'Customer'}</Text>
-                  {item.customer_phone ? <Text style={s.custPhone}>{item.customer_phone}</Text> : null}
+                  ) : null}
                 </View>
                 <StatusBadge status={item.status} />
               </View>
+
+              <View style={s.cardBody}>
+                <View style={{ flex: 1, paddingRight: 8 }}>
+                  <Text style={s.custName}>{item.customer_name || 'Customer'}</Text>
+                  {item.customer_phone ? <Text style={s.custPhone}>{item.customer_phone}</Text> : null}
+                </View>
+                <View style={s.pill}>
+                  <Text style={s.pillText}>{item.service_type === 'washing' ? 'Wash' : 'Service'}</Text>
+                </View>
+              </View>
+
               <View style={s.cardFooter}>
                 <Text style={s.footerLeft}>{fmtDate(item.created_at)}</Text>
                 <Text style={s.footerRight}>{inr(item.total || 0)}</Text>
@@ -177,21 +192,22 @@ const s = StyleSheet.create({
   upgradeNoticeSub: { fontSize: 11, color: '#7F1D1D', marginTop: 1 },
   upgradeNoticeBtn: { backgroundColor: '#991B1B', paddingHorizontal: 10, paddingVertical: 6, borderRadius: radius.sm },
   upgradeNoticeBtnText: { color: '#fff', fontSize: 11, fontWeight: '800' },
-  topBar: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: spacing.lg, gap: 8, marginVertical: 4,
+  headerExportBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 5,
+    height: 38, paddingHorizontal: 12, borderRadius: 19,
+    backgroundColor: colors.surfaceSecondary, borderWidth: 1, borderColor: colors.border,
+    ...shadow.card,
   },
-  chipsRow: { flex: 1, maxHeight: 56, paddingVertical: 6 },
+  headerExportText: { color: colors.onSurface, fontSize: 12, fontWeight: '700' },
+  topBar: {
+    marginVertical: 4,
+  },
+  chipsRow: { maxHeight: 56, paddingVertical: 4 },
   chip: {
-    height: 34, paddingHorizontal: 12, borderRadius: 17,
+    height: 34, paddingHorizontal: 14, borderRadius: 17,
     backgroundColor: colors.surfaceSecondary, borderWidth: 1, borderColor: colors.border,
     alignItems: 'center', justifyContent: 'center', flexShrink: 0,
   },
-  exportBtn: {
-    flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: colors.brandPrimary,
-    paddingHorizontal: 12, paddingVertical: 8, borderRadius: radius.md, ...shadow.card,
-  },
-  exportBtnText: { color: '#fff', fontSize: 12, fontWeight: '700' },
   chipActive: { backgroundColor: colors.brandPrimary, borderColor: colors.brandPrimary },
   chipText: { color: colors.onSurfaceSecondary, fontWeight: '600', fontSize: 13 },
   chipTextActive: { color: '#fff' },
@@ -199,9 +215,21 @@ const s = StyleSheet.create({
     backgroundColor: colors.surfaceSecondary, borderRadius: radius.lg,
     padding: spacing.lg, marginBottom: spacing.md, ...shadow.card,
   },
-  regNo: { fontSize: 14, fontWeight: '800', color: colors.onSurface, letterSpacing: 0.5 },
+  cardHeader: {
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    marginBottom: spacing.xs,
+  },
+  cardHeaderLeft: {
+    flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1, paddingRight: 8, flexWrap: 'wrap',
+  },
+  regNo: { fontSize: 15, fontWeight: '800', color: colors.onSurface, letterSpacing: 0.5 },
+  cardBody: {
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    marginTop: spacing.xs,
+  },
   pill: {
-    backgroundColor: colors.brandTertiary, paddingHorizontal: 8, paddingVertical: 2, borderRadius: 999,
+    backgroundColor: colors.brandTertiary, paddingHorizontal: 8, paddingVertical: 3, borderRadius: 999,
+    alignSelf: 'flex-start',
   },
   pillText: { color: colors.onBrandTertiary, fontSize: 10, fontWeight: '700', letterSpacing: 0.5 },
   jcBadge: {
@@ -209,15 +237,14 @@ const s = StyleSheet.create({
     borderWidth: 1, borderColor: colors.brandPrimary,
   },
   jcBadgeText: { color: colors.brandPrimary, fontSize: 10, fontWeight: '800' },
-  model: { color: colors.muted, marginTop: 4, fontSize: 13 },
-  cust: { color: colors.muted, fontSize: 12, marginTop: 4 },
-  custName: { fontSize: 14, fontWeight: '700', color: colors.onSurface, marginTop: 4 },
+  custName: { fontSize: 14, fontWeight: '700', color: colors.onSurface },
   custPhone: { fontSize: 12, color: colors.muted, marginTop: 2 },
   cardFooter: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    marginTop: spacing.md, paddingTop: spacing.md, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border,
+    marginTop: spacing.md, paddingTop: spacing.sm, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border,
   },
   footerLeft: { color: colors.muted, fontSize: 12 },
   footerRight: { color: colors.onSurface, fontWeight: '800', fontSize: 15 },
   empty: { alignItems: 'center', padding: spacing.xxl },
 });
+

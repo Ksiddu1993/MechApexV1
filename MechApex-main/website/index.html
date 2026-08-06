@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MechApex — #1 Garage & Auto Workshop Management OS</title>
+  <meta name="description" content="MechApex is the ultimate garage management platform for car & bike service centers. Digital job cards, customer vehicle history, WhatsApp billing, mechanic team management, and spares inventory.">
+  <meta name="keywords" content="garage management software, workshop software, digital job card app, mechanic app, auto repair billing, vehicle service app, GST garage invoice">
+  
+  <!-- Canonical & Domain Meta -->
+  <link rel="canonical" href="https://www.mechapex.in/">
+  <meta property="og:title" content="MechApex — #1 Garage & Auto Workshop Management OS">
+  <meta property="og:description" content="Manage Job Cards, Customer Vehicles, Mechanics, Spares Catalog & GST Billing in one powerful platform.">
+  <meta property="og:url" content="https://www.mechapex.in/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.mechapex.in/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MechApex",
+    "operatingSystem": "Android, Web, iOS",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "url": "https://www.mechapex.in"
+  }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://img.icons8.com/isometric-folders/512/car-service.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Animated Mesh Gradients -->
+  <div class="bg-gradient-glow glow-1"></div>
+  <div class="bg-gradient-glow glow-2"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-wrench"></i>
+        </div>
+        <span class="logo-text">Mech<span class="highlight">Apex</span></span>
+        <span class="version-tag">v1.0 OS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#calculator">ROI Calculator</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#download" class="btn btn-secondary">
+          <i class="fa-brands fa-android"></i> Download APK
+        </a>
+        <a href="/app/" class="btn btn-primary">
+          <i class="fa-solid fa-bolt"></i> Launch Web App
+        </a>
+      </div>
+
+      <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="badge-pill">
+          <span class="pulse-dot"></span>
+          <span>Trusted by 500+ Garages across India</span>
+        </div>
+        <h1 class="hero-title">
+          Run Your Garage at <span class="gradient-text">Peak Velocity</span>
+        </h1>
+        <p class="hero-subtitle">
+          Create digital job cards in 30 seconds, send instant WhatsApp estimates, manage mechanic teams, track spare parts inventory, and collect payments effortlessly.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-play"></i> Try Interactive Simulator
+          </a>
+          <a href="#download" class="btn btn-secondary btn-lg">
+            <i class="fa-brands fa-google-play"></i> Get Android App
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num" data-target="150000">150,000+</span>
+            <span class="stat-label">Job Cards Created</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">30 Sec</span>
+            <span class="stat-label">Avg Job Creation</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">99.9%</span>
+            <span class="stat-label">Uptime Guaranteed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Interactive Card Preview Widget -->
+      <div class="hero-card-preview">
+        <div class="glass-card mockup-card">
+          <div class="mockup-header">
+            <div class="dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="mockup-title"><i class="fa-solid fa-file-invoice"></i> Live Job Card Preview</span>
+            <span class="status-badge status-progress">In Progress</span>
+          </div>
+
+          <div class="job-card-mini">
+            <div class="jc-row header-info">
+              <div>
+                <h4 class="jc-vehicle">KA 05 ME 9988</h4>
+                <p class="jc-customer"><i class="fa-solid fa-user"></i> Rajesh Kumar • Maruti Suzuki Swift</p>
+              </div>
+              <div class="jc-price-tag">
+                <span class="currency">₹</span><span id="heroTotal">3,450</span>
+              </div>
+            </div>
+
+            <div class="jc-divider"></div>
+
+            <div class="jc-services-list">
+              <div class="jc-item">
+                <span><i class="fa-solid fa-circle-check"></i> Synthetic Engine Oil (4L)</span>
+                <span class="item-cost">₹1,850</span>
+              </div>
+              <div class="jc-item">
+                <span><i class="fa-solid fa-circle-check"></i> Oil & Air Filter Change</span>
+                <span class="item-cost">₹450</span>
+              </div>
+              <div class="jc-item">
+                <span><i class="fa-solid fa-circle-check"></i> Front Brake Pad Replacement</span>
+                <span class="item-cost">₹850</span>
+              </div>
+              <div class="jc-item">
+                <span><i class="fa-solid fa-circle-check"></i> Full Body Foam Washing</span>
+                <span class="item-cost">₹300</span>
+              </div>
+            </div>
+
+            <div class="jc-actions">
+              <button class="action-btn wa-share">
+                <i class="fa-brands fa-whatsapp"></i> Send Invoice on WhatsApp
+              </button>
+              <button class="action-btn print-btn">
+                <i class="fa-solid fa-print"></i> Print Receipt
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid Section -->
+  <section class="features-section" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">POWERFUL CAPABILITIES</span>
+        <h2 class="section-title">Everything Your Workshop Needs to Grow</h2>
+        <p class="section-subtitle">Designed specifically for 2-wheeler and 4-wheeler workshops, mechanics, and multi-branch service networks.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card glass-card">
+          <div class="feature-icon icon-purple">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+          <h3>Digital Job Cards</h3>
+          <p>Create digital job sheets with vehicle inspection details, photo attachments, fuel levels, and customer consent in under 30 seconds.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-icon icon-emerald">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp Estimates & Billing</h3>
+          <p>Send itemized estimate approvals and final GST / Non-GST invoices directly to customers' WhatsApp with clickable payment links.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-icon icon-blue">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h3>Mechanic & Sub-User Roles</h3>
+          <p>Assign job cards to mechanics, track individual labor output, set role-based access limits, and manage up to 100+ team members.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-icon icon-amber">
+            <i class="fa-solid fa-boxes-stacked"></i>
+          </div>
+          <h3>Spares Catalog & Inventory</h3>
+          <p>Keep pre-loaded prices for standard services and spare parts. Monitor low stock alerts and auto-calculate margin per job.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-icon icon-rose">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Analytics & Revenue Reports</h3>
+          <p>Real-time insights on daily revenue, pending job cards, completed services, top customers, and technician productivity.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-icon icon-cyan">
+            <i class="fa-solid fa-file-csv"></i>
+          </div>
+          <h3>Bulk CSV Customer Import</h3>
+          <p>Migrate thousands of existing customer profiles and vehicle registration data seamlessly with 1-click CSV import and export.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live Simulator Section -->
+  <section class="demo-section" id="demo">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">INTERACTIVE DEMO</span>
+        <h2 class="section-title">Experience MechApex Live</h2>
+        <p class="section-subtitle">Try creating a job card right now in your browser. Watch how prices and WhatsApp billing update instantly.</p>
+      </div>
+
+      <div class="simulator-box glass-card">
+        <div class="simulator-grid">
+          <!-- Input Form -->
+          <div class="sim-form">
+            <h4 class="sim-title"><i class="fa-solid fa-pen-to-square"></i> Create Job Card</h4>
+            
+            <div class="form-group">
+              <label><i class="fa-solid fa-car"></i> Vehicle Type</label>
+              <div class="radio-pill-group">
+                <button type="button" class="pill-btn active" id="typeFourWheeler"><i class="fa-solid fa-car"></i> 4-Wheeler</button>
+                <button type="button" class="pill-btn" id="typeTwoWheeler"><i class="fa-solid fa-motorcycle"></i> 2-Wheeler</button>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" id="simName" value="Rahul Sharma" class="sim-input">
+              </div>
+              <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text" id="simPhone" value="9876543210" class="sim-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Vehicle Reg Number</label>
+                <input type="text" id="simReg" value="KA 01 AB 1234" class="sim-input" style="text-transform: uppercase;">
+              </div>
+              <div class="form-group">
+                <label>Vehicle Model</label>
+                <input type="text" id="simModel" value="Hyundai Creta 1.6" class="sim-input">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Select Services & Parts</label>
+              <div class="services-checklist" id="checklistContainer">
+                <!-- Checkbox items dynamically populated by app.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Output Invoice Preview -->
+          <div class="sim-preview">
+            <div class="invoice-paper">
+              <div class="inv-header">
+                <div class="inv-brand">
+                  <i class="fa-solid fa-wrench"></i> MechApex Workshop
+                </div>
+                <div class="inv-badge">ESTIMATE</div>
+              </div>
+
+              <div class="inv-details">
+                <p><strong>Customer:</strong> <span id="outName">Rahul Sharma</span> (<span id="outPhone">9876543210</span>)</p>
+                <p><strong>Vehicle:</strong> <span id="outReg">KA 01 AB 1234</span> • <span id="outModel">Hyundai Creta 1.6</span></p>
+                <p><strong>Date:</strong> <span id="outDate">Today</span></p>
+              </div>
+
+              <table class="inv-table">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th style="text-align: right;">Amount</th>
+                  </tr>
+                </thead>
+                <tbody id="outItems">
+                  <!-- Rows injected dynamically -->
+                </tbody>
+              </table>
+
+              <div class="inv-total-box">
+                <span>Total Amount:</span>
+                <span class="total-price" id="outTotal">₹0</span>
+              </div>
+
+              <div class="inv-footer-msg">
+                <i class="fa-brands fa-whatsapp"></i> Ready to send to customer via WhatsApp!
+              </div>
+
+              <button class="btn btn-emerald btn-block" onclick="alert('Simulation: WhatsApp Invoice sent to customer successfully!')">
+                <i class="fa-brands fa-whatsapp"></i> Test Send WhatsApp Invoice
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Calculator Section -->
+  <section class="calculator-section" id="calculator">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">GROWTH CALCULATOR</span>
+        <h2 class="section-title">Calculate Your Workshop Savings</h2>
+        <p class="section-subtitle">See how much time and money MechApex saves your garage every single month.</p>
+      </div>
+
+      <div class="calculator-card glass-card">
+        <div class="calc-grid">
+          <div class="calc-controls">
+            <label class="calc-label">Vehicles Serviced Per Day: <span id="vehiclesVal" class="highlight-val">15 Vehicles</span></label>
+            <input type="range" id="vehiclesSlider" min="3" max="60" value="15" class="custom-slider">
+
+            <label class="calc-label" style="margin-top: 20px;">Average Bill Value per Vehicle: <span id="avgBillVal" class="highlight-val">₹2,500</span></label>
+            <input type="range" id="avgBillSlider" min="500" max="10000" step="250" value="2500" class="custom-slider">
+          </div>
+
+          <div class="calc-results">
+            <div class="result-box">
+              <span class="res-title">Estimated Hours Saved / Month</span>
+              <span class="res-value gradient-text" id="resHours">45 Hours</span>
+              <span class="res-sub">No more paper job cards & manual ledger entry</span>
+            </div>
+
+            <div class="result-box">
+              <span class="res-title">Unbilled Leakage Saved / Month</span>
+              <span class="res-value emerald-text" id="resRevenue">₹18,750</span>
+              <span class="res-sub">Capture 100% of spare parts & labor tasks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">TRANSPARENT PRICING</span>
+        <h2 class="section-title">Simple Plans. High Return.</h2>
+        <p class="section-subtitle">No hidden fees. Upgrade whenever your garage scales.</p>
+      </div>
+
+      <!-- Pricing Tab Switcher -->
+      <div class="tab-switcher">
+        <button class="tab-btn active" id="tabJobCards">Job Card Packages</button>
+        <button class="tab-btn" id="tabWorkers">Worker Expansion Packs</button>
+      </div>
+
+      <!-- Job Card Packages Grid -->
+      <div class="pricing-grid" id="jobCardsGrid">
+        <!-- Starter Plan -->
+        <div class="pricing-card glass-card">
+          <div class="pkg-header">
+            <h3>Starter Trial</h3>
+            <p>For new or small garage owners</p>
+          </div>
+          <div class="pkg-price">
+            <span class="amount">₹0</span>
+            <span class="period">/ 100 Job Cards</span>
+          </div>
+          <ul class="pkg-features">
+            <li><i class="fa-solid fa-check"></i> First 100 Job Cards Free</li>
+            <li><i class="fa-solid fa-check"></i> Up to 10 Workers / Mechanics</li>
+            <li><i class="fa-solid fa-check"></i> WhatsApp Invoice Sharing</li>
+            <li><i class="fa-solid fa-check"></i> Customer & Vehicle History</li>
+          </ul>
+          <a href="#demo" class="btn btn-secondary btn-block">Start Free</a>
+        </div>
+
+        <!-- 500 Job Cards -->
+        <div class="pricing-card glass-card featured">
+          <div class="popular-tag">MOST POPULAR</div>
+          <div class="pkg-header">
+            <h3>500 Job Cards</h3>
+            <p>For growing auto workshops</p>
+          </div>
+          <div class="pkg-price">
+            <span class="amount">₹499</span>
+            <span class="period">one-time reload</span>
+          </div>
+          <ul class="pkg-features">
+            <li><i class="fa-solid fa-check"></i> 500 Digital Job Cards</li>
+            <li><i class="fa-solid fa-check"></i> GST & Non-GST Billing</li>
+            <li><i class="fa-solid fa-check"></i> 10 Active Workers Included</li>
+            <li><i class="fa-solid fa-check"></i> CSV Import & Export</li>
+            <li><i class="fa-solid fa-check"></i> Instant WhatsApp Receipts</li>
+          </ul>
+          <a href="#demo" class="btn btn-primary btn-block">Get 500 Pack</a>
+        </div>
+
+        <!-- 1000 Job Cards -->
+        <div class="pricing-card glass-card">
+          <div class="pkg-header">
+            <h3>1,000 Job Cards</h3>
+            <p>For busy multi-bay centers</p>
+          </div>
+          <div class="pkg-price">
+            <span class="amount">₹899</span>
+            <span class="period">one-time reload</span>
+          </div>
+          <ul class="pkg-features">
+            <li><i class="fa-solid fa-check"></i> 1,000 Digital Job Cards</li>
+            <li><i class="fa-solid fa-check"></i> Priority Support</li>
+            <li><i class="fa-solid fa-check"></i> Unlimited Customer Database</li>
+            <li><i class="fa-solid fa-check"></i> Inventory Stock Management</li>
+          </ul>
+          <a href="#demo" class="btn btn-secondary btn-block">Get 1000 Pack</a>
+        </div>
+      </div>
+
+      <!-- Worker Packages Grid (Initially Hidden) -->
+      <div class="pricing-grid" id="workersGrid" style="display: none;">
+        <div class="pricing-card glass-card">
+          <div class="pkg-header">
+            <h3>10 Extra Workers</h3>
+            <p>Expand your mechanic staff</p>
+          </div>
+          <div class="pkg-price">
+            <span class="amount">₹99</span>
+            <span class="period">one-time upgrade</span>
+          </div>
+          <ul class="pkg-features">
+            <li><i class="fa-solid fa-check"></i> Add +10 Worker Accounts</li>
+            <li><i class="fa-solid fa-check"></i> Individual Mechanic Login</li>
+            <li><i class="fa-solid fa-check"></i> Activity & Job Tracking</li>
+          </ul>
+          <a href="#demo" class="btn btn-secondary btn-block">Upgrade ₹99</a>
+        </div>
+
+        <div class="pricing-card glass-card featured">
+          <div class="popular-tag">BEST VALUE</div>
+          <div class="pkg-header">
+            <h3>100 Extra Workers</h3>
+            <p>For large service centers & networks</p>
+          </div>
+          <div class="pkg-price">
+            <span class="amount">₹799</span>
+            <span class="period">one-time upgrade</span>
+          </div>
+          <ul class="pkg-features">
+            <li><i class="fa-solid fa-check"></i> Add +100 Worker Accounts</li>
+            <li><i class="fa-solid fa-check"></i> Multi-branch Staff Management</li>
+            <li><i class="fa-solid fa-check"></i> Role & Access Controls</li>
+          </ul>
+          <a href="#demo" class="btn btn-primary btn-block">Upgrade ₹799</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">GOT QUESTIONS?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I use MechApex on Android phones and tablets?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! MechApex is fully optimized for Android smartphones, tablets, and web browsers. Your team can access data seamlessly across all devices.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do WhatsApp invoices work?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>With 1 tap, MechApex formats the job card into a clean digital invoice and opens WhatsApp on your phone with pre-filled customer details ready to send.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How many workers can I add to my garage?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Every owner gets up to 10 worker accounts free. You can expand up to 100+ workers anytime using our worker expansion packs starting at just ₹99.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I import my existing customer list from Excel/CSV?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. MechApex supports 1-click CSV import and export for customer names, mobile numbers, and vehicle registration numbers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer & CTA Section -->
+  <footer class="footer" id="download">
+    <div class="section-container">
+      <div class="footer-cta glass-card">
+        <h2>Ready to Upgrade Your Garage?</h2>
+        <p>Join hundreds of modern workshop owners who trust MechApex every day.</p>
+        <div class="hero-cta" style="justify-content: center; margin-top: 20px;">
+          <a href="/app/" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-rocket"></i> Launch Web App Now
+          </a>
+          <a href="https://github.com/Ksiddu1993/MechApexV1" target="_blank" class="btn btn-secondary btn-lg">
+            <i class="fa-brands fa-github"></i> View GitHub Repo
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 MechApex OS. Built with precision for automotive workshops.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Support: 8904600880@upi</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Logic JS -->
+  <script src="app.js"></script>
+</body>
+</html>

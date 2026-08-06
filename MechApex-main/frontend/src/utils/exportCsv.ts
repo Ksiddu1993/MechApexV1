@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform, Alert } from 'react-native';
 import { fmtDate } from './format';
 
 function escapeCsvField(field: any): string {
@@ -30,19 +30,26 @@ export async function downloadCsv(filename: string, csvContent: string): Promise
       const FileSystem = require('expo-file-system');
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const Sharing = require('expo-sharing');
-      const fileUri = `${FileSystem.documentDirectory}${filename}`;
+      const dir = FileSystem.cacheDirectory || FileSystem.documentDirectory;
+      const fileUri = `${dir.endsWith('/') ? dir : dir + '/'}${filename}`;
       await FileSystem.writeAsStringAsync(fileUri, csvContent, {
         encoding: FileSystem.EncodingType.UTF8,
       });
       if (await Sharing.isAvailableAsync()) {
-        await Sharing.shareAsync(fileUri, {
+        const shareOpts: any = {
           mimeType: 'text/csv',
           dialogTitle: `Export ${filename}`,
-          UTI: 'public.comma-separated-values-text',
-        });
+        };
+        if (Platform.OS === 'ios') {
+          shareOpts.UTI = 'public.comma-separated-values-text';
+        }
+        await Sharing.shareAsync(fileUri, shareOpts);
+      } else {
+        Alert.alert('Sharing Not Available', 'Your device does not support file sharing. Please use the web version to export CSV.');
       }
-    } catch (e) {
+    } catch (e: any) {
       console.error('Export CSV error:', e);
+      Alert.alert('Export Failed', e?.message || 'Could not export file. Please try again.');
     }
   }
 }
@@ -97,8 +104,18 @@ export async function exportJobsCsv(jobs: any[]): Promise<void> {
   ];
 
   const rows = jobs.map((j) => {
-    const servicesStr = (j.services || [])
-      .map((s: any) => `${s.name} (Qty: ${s.qty || 1}, Rs.${s.price})`)
+    const serviceItems = j.items || j.services || j.services_selected || [];
+    const servicesStr = (Array.isArray(serviceItems) ? serviceItems : [])
+      .map((s: any) => {
+        if (!s) return '';
+        if (typeof s === 'string') return s;
+        const name = s.name || s.category || s.title || 'Item';
+        const price = s.price !== undefined && s.price !== null ? `Rs.${s.price}` : '';
+        const qty = s.qty ? `Qty: ${s.qty}` : '';
+        const details = [qty, price].filter(Boolean).join(', ');
+        return details ? `${name} (${details})` : name;
+      })
+      .filter(Boolean)
       .join('; ');
 
     return [

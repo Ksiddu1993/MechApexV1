@@ -47,7 +47,7 @@ export default function TabsLayout() {
         name="customers"
         options={{
           title: 'Customers',
-          href: isOwner ? '/(tabs)/customers' : null,
+          href: isOwner ? '/customers' : null,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'people' : 'people-outline'} color={color} size={22} />
           ),
@@ -70,7 +70,7 @@ export default function TabsLayout() {
         name="analytics"
         options={{
           title: t('analytics'),
-          href: isOwner ? '/(tabs)/analytics' : null,
+          href: isOwner ? '/analytics' : null,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'bar-chart' : 'bar-chart-outline'} color={color} size={22} />
           ),

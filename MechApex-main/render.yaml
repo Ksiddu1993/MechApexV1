@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: mechapex-api
+    env: python
+    region: singapore
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: USE_MOCK_DB
+        value: "true"
+      - key: DB_NAME
+        value: garageflow_db
+      - key: JWT_SECRET
+        generateValue: true

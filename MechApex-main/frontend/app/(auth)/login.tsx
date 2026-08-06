@@ -42,7 +42,7 @@ export default function Login() {
       const digits = phone.replace(/\D/g, '');
       const r: any = await api.verifyOtp(digits, otp, name);
       await setSession(r.token, r.user);
-      router.replace(r.user?.role === 'sub' ? '/(tabs)/home' : '/(tabs)/home');
+      router.replace('/home');
     } catch (e: any) { setErr(e.message); }
     finally { setLoading(false); }
   }

@@ -7,18 +7,18 @@ function getBaseUrl(): string {
   }
   if (typeof window !== 'undefined' && window.location && window.location.hostname) {
     const host = window.location.hostname;
-    if (host && host !== 'localhost' && host !== '127.0.0.1') {
+    if (host === 'localhost' || host === '127.0.0.1' || host.startsWith('192.168.') || host.startsWith('10.')) {
       return `http://${host}:8000`;
     }
   }
   const hostUri = Constants.expoConfig?.hostUri || (Constants as any).manifest?.debuggerHost || (Constants as any).manifest2?.extra?.expoGo?.debuggerHost;
   if (hostUri) {
     const ip = hostUri.split(':')[0];
-    if (ip) {
+    if (ip && (ip === 'localhost' || ip === '127.0.0.1' || ip.startsWith('192.168.') || ip.startsWith('10.'))) {
       return `http://${ip}:8000`;
     }
   }
-  return 'http://10.152.69.48:8000';
+  return 'https://mechapex-backend-production.up.railway.app';
 }
 
 const BASE = getBaseUrl();
