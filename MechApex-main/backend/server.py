@@ -36,14 +36,19 @@ JWT_SECRET = os.environ.get('JWT_SECRET', 'garageflow_secret_key_123456789')
 
 import certifi
 
-if os.environ.get('USE_MOCK_DB', 'true').lower() == 'true' or not MONGO_URL:
+if os.environ.get('USE_MOCK_DB', 'false').lower() == 'true' or not MONGO_URL:
     try:
         from mongomock_motor import AsyncMongoMockClient
         client = AsyncMongoMockClient()
+        logging.info("Connected to Mock MongoDB")
     except Exception:
         client = AsyncIOMotorClient(MONGO_URL or 'mongodb://localhost:27017')
 else:
-    client = AsyncIOMotorClient(MONGO_URL, tlsCAFile=certifi.where(), tlsAllowInvalidCertificates=True)
+    if MONGO_URL.startswith('mongodb+srv://') or 'ssl=true' in MONGO_URL.lower():
+        client = AsyncIOMotorClient(MONGO_URL, tlsCAFile=certifi.where(), tlsAllowInvalidCertificates=True)
+    else:
+        client = AsyncIOMotorClient(MONGO_URL)
+    logging.info(f"Connected to MongoDB at {MONGO_URL.split('@')[-1] if '@' in MONGO_URL else MONGO_URL}")
 
 db = client[DB_NAME]
 JWT_ALG = 'HS256'
